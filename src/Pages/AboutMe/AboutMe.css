@@ -1,0 +1,12 @@
+.mainContainer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.firstContainer{
+    grid-column-start: 1;
+    grid-column-end: 12;
+}
+.secondContainer{
+    grid-column-start: 4;
+    grid-column-end: 12;
+}
