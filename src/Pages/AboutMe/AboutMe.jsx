@@ -17,9 +17,9 @@ const AboutMe = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}>
-                    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                    <div className="px-4 mx-auto  sm:px-6 lg:px-8 max-w-7xl">
                         <div className="grid items-center grid-cols-1 md:grid-cols-2">
-                            <div>
+                            <div className="mt-10">
                                 <h2 className="text-2xl font-bold leading-tight text-black sm:text-xl lg:text-3xl">Hey,
                                     I
                                     am a </h2><h1 className="text-7xl text-[#36454F] [text-shadow:2px_2px_4px_rgba(0,0,0,0.5)] font-bold leading-tight"><br
@@ -54,21 +54,22 @@ const AboutMe = () => {
 
                                 {/*Dynamic Content*/}
 
-                                <section className="py-10  sm:py-16 lg:py-24">
+                                <section className="mt-14 -mb-20 -ml-10">
                                     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-
-                                        <div className="grid grid-cols-1 gap-6 px-6 mt-8 sm:px-0 lg:mt-16 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
+                                        <div className="grid grid-cols-4 gap-6 px-6 sm:px-0 sm:grid-cols-4 lg:grid-cols-2 xl:gap-x-12">
                                             <div className="overflow-hidden ">
                                                 <div className="px-4 py-6">
                                                     <div className="flex items-start">
-                                                        <svg className="flex-shrink-0 w-12 h-12 text-fuchsia-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg className="flex-shrink-0 w-12 h-12 text-pink-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                                         </svg>
                                                         <div className="ml-4">
                                                             <h4 className="text-4xl font-bold text-gray-900">6+</h4>
-                                                            <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">Years in business</p>
+
                                                         </div>
+
                                                     </div>
+                                                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">Years of Experience</p>
                                                 </div>
                                             </div>
 
@@ -77,14 +78,15 @@ const AboutMe = () => {
                                             <div className="overflow-hidden">
                                                 <div className="px-4 py-6">
                                                     <div className="flex items-start">
-                                                        <svg className="flex-shrink-0 w-12 h-12 text-fuchsia-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg className="flex-shrink-0 w-12 h-12 text-pink-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                                         </svg>
                                                         <div className="ml-4">
                                                             <h4 className="text-4xl font-bold text-gray-900">3,274</h4>
-                                                            <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">Projects delivered</p>
+
                                                         </div>
                                                     </div>
+                                                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">Projects Completed</p>
                                                 </div>
                                             </div>
 
