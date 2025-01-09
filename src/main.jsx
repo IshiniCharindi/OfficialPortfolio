@@ -34,6 +34,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />
     },
+    {
+        path: "/portfoilo",
+        element: <Porfolio />
+    },
 ]);
 
 createRoot(document.getElementById('root')).render(

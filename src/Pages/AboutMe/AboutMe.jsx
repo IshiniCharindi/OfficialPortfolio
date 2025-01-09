@@ -30,12 +30,12 @@ const AboutMe = () => {
                                     to my clients. With a
                                     focus on excellence, I aim to creatae captivating and functional web solutions
                                     tailored to your specific needs.
-                                    I invite you to share your requirements with me, confident in my ability to exceed
-                                    your expectations through
-                                    creativity and technical expertise.</p>
+                                    {/*I invite you to share your requirements with me, confident in my ability to exceed*/}
+                                    {/*your expectations through*/}
+                                    {/*creativity and technical expertise.*/}</p>
 
                                 <button
-                                    className="items-center justify-center px-2 py-2 mt-20 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-purple-800">
+                                    className="items-center justify-center px-2 py-2 mt-10 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-pink-700">
                                     <table>
                                         <tr>
                                             <td className="px-1">
@@ -51,6 +51,51 @@ const AboutMe = () => {
                                     </table>
 
                                 </button>
+
+                                {/*Dynamic Content*/}
+
+                                <section className="py-10  sm:py-16 lg:py-24">
+                                    <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+
+                                        <div className="grid grid-cols-1 gap-6 px-6 mt-8 sm:px-0 lg:mt-16 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
+                                            <div className="overflow-hidden ">
+                                                <div className="px-4 py-6">
+                                                    <div className="flex items-start">
+                                                        <svg className="flex-shrink-0 w-12 h-12 text-fuchsia-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                                        </svg>
+                                                        <div className="ml-4">
+                                                            <h4 className="text-4xl font-bold text-gray-900">6+</h4>
+                                                            <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">Years in business</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div className="overflow-hidden">
+                                                <div className="px-4 py-6">
+                                                    <div className="flex items-start">
+                                                        <svg className="flex-shrink-0 w-12 h-12 text-fuchsia-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                                        </svg>
+                                                        <div className="ml-4">
+                                                            <h4 className="text-4xl font-bold text-gray-900">3,274</h4>
+                                                            <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">Projects delivered</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </section>
+
+
+
+                                {/*Dynamic Content*/}
+
 
                     {/*            <p className="mt-4 text-xl text-gray-600 md:mt-8">*/}
                     {/*<span className="relative inline-block">*/}
@@ -88,7 +133,7 @@ const AboutMe = () => {
                                             skills and technologies I’ve been learning and working with.<br/> Interested in seeing what I can do? </p>
                                     </td>
                                     <td className="px-20">
-                                        <button className="items-center justify-center px-2 py-2  text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-purple-800">
+                                        <button className="items-center justify-center px-2 py-2  text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-pink-700">
                                             <table>
                                                 <tr>
                                                     <td className="px-1">
@@ -97,7 +142,7 @@ const AboutMe = () => {
                                                         </svg>
                                                     </td>
                                                     <td className="px-2 py-0">
-                                                        Services & Pricing
+                                                        Services
                                                     </td>
                                                 </tr>
                                             </table>

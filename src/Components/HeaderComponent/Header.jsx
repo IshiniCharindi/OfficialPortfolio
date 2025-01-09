@@ -1,8 +1,12 @@
 import MenuLinks from "../MenuLinks/MenuLinks.jsx";
 import image1 from "../../../public/ishini2.png"
 import './Header.css'
+import {useState} from "react";
 
 const Header = () => {
+
+    const [activeLink, setActiveLink] = useState(null);
+
     return (
         <div className="mainHeader">
             {/*bg-gradient-to-t from-[#c69abd] to-[#c69abd]*/}
@@ -53,9 +57,12 @@ const Header = () => {
                             </svg>
                         </button>
 
-                        <div className=" flex flex-col items-start space-y-4">
+                        <div className=" flex flex-col items-start space-y-4 ml-3 mt-5">
                             <div
-                                className="text-base font-medium text-black transition-all duration-200 hover:text-white hover:bg-purple-950 hover:border hover:border-purple-950 hover:py-1 hover:px-3 rounded-3xl focus:*">
+                                className={`text-base font-medium ${
+                                    activeLink === "services" ? "bg-pink-600 text-white" : "text-black"
+                                } transition-all duration-200 hover:text-white hover:bg-pink-700 hover:border hover:border-pink-500 hover:py-1 hover:px-3 rounded-xl`}
+                                onClick={() => setActiveLink("")}>
                                 <table>
                                     <tr>
                                         <td className="px-2 py-2">
@@ -72,7 +79,10 @@ const Header = () => {
 
                             </div>
                             <div
-                                className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+                                className={`text-base font-medium ${
+                                    activeLink === "services" ? "bg-pink-600 text-white" : "text-black"
+                                } transition-all duration-200 hover:text-white hover:bg-pink-700 hover:border hover:border-pink-500 hover:py-1 hover:px-3 rounded-xl`}
+                                onClick={() => setActiveLink("portfolio")}>
                                 <table>
                                     <tr>
                                         <td className="px-2 py-2">
@@ -91,43 +101,50 @@ const Header = () => {
                             </div>
 
                             <div
-                                className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+                                className={`text-base font-medium ${
+                                    activeLink === "services" ? "bg-pink-600 text-white" : "text-black"
+                                } transition-all duration-200 hover:text-white hover:bg-pink-700 hover:border hover:border-pink-500 hover:py-1 hover:px-3 rounded-xl`}
+                                onClick={() => setActiveLink("services")}>
                                 <table>
                                     <tr>
                                         <td className="px-2 py-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-briefcase" viewBox="0 0 16 16">
-                                                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
+                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
                                             </svg>
                                         </td>
                                         <td>
-                                            <MenuLinks src="/services" text="Services & Pricing"/>
+                                            <MenuLinks src="/services" text="Services" />
                                         </td>
                                     </tr>
                                 </table>
-
-
                             </div>
-                            <div
-                                className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
-                                <table>
-                                    <tr>
-                                        <td className="px-2 py-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-journal-text" viewBox="0 0 16 16">
-                                                <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
-                                                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
-                                                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
-                                            </svg>
-                                        </td>
-                                        <td>
-                                            <MenuLinks src="/resume" text="Resume"/>
-                                        </td>
-                                    </tr>
-                                </table>
+                            {/*<div*/}
+                            {/*    className={`text-base font-medium ${*/}
+                            {/*        activeLink === "services" ? "bg-pink-600 text-white" : "text-black"*/}
+                            {/*    } transition-all duration-200 hover:text-white hover:bg-pink-700 hover:border hover:border-pink-500 hover:py-1 hover:px-3 rounded-xl`}*/}
+                            {/*    onClick={() => setActiveLink("resume")}>*/}
+                            {/*    <table>*/}
+                            {/*        <tr>*/}
+                            {/*            <td className="px-2 py-2">*/}
+                            {/*                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-journal-text" viewBox="0 0 16 16">*/}
+                            {/*                    <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>*/}
+                            {/*                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>*/}
+                            {/*                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>*/}
+                            {/*                </svg>*/}
+                            {/*            </td>*/}
+                            {/*            <td>*/}
+                            {/*                <MenuLinks src="/resume" text="Resume"/>*/}
+                            {/*            </td>*/}
+                            {/*        </tr>*/}
+                            {/*    </table>*/}
 
 
-                            </div>
+                            {/*</div>*/}
                             <div
-                                className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+                                className={`text-base font-medium ${
+                                    activeLink === "services" ? "bg-pink-600 text-white" : "text-black"
+                                } transition-all duration-200 hover:text-white hover:bg-pink-700 hover:border hover:border-pink-500 hover:py-1 hover:px-3 rounded-xl`}
+                                onClick={() => setActiveLink("contact")}>
                                 <table>
                                     <tr>
                                         <td className="px-2 py-2">
@@ -145,7 +162,7 @@ const Header = () => {
                             </div>
 
                         </div>
-                        <button className="items-center justify-center px-2 py-2 mt-20 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-purple-800">
+                        <button className="items-center justify-center px-2 py-2 mt-20 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-pink-700">
                            <table>
                                <tr>
                                    <td className="px-1 ">

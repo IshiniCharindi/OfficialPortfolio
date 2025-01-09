@@ -14,7 +14,7 @@ const Services = () => {
                     <h2 className="text-3xl font-bold text-center leading-tight text-black sm:text-4xl lg:text-5xl">Services & Pricing</h2>
                     <p className="mx-auto mt-4 text-base text-center leading-relaxed text-gray-600">I have 10+ years of development experience building software for the web and mobile devices. You can take a look at my online <br/> resume and project portfolio to find out more about my skills and experiences.</p>
                     <div className="grid place-items-center">
-                        <button className="items-center justify-center px-2 py-2 mt-5 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-purple-800">
+                        <button className="items-center justify-center px-2 py-2 mt-5 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-pink-700">
                             <table>
                                 <tr>
                                     <td className="px-1 ">
@@ -197,7 +197,7 @@ const Services = () => {
                     <h2 className="text-3xl font-bold text-center leading-tight text-black sm:text-4xl lg:text-5xl">Want to hire me for custom package?</h2>
                     <p className="mx-auto mt-4 text-base text-center leading-relaxed text-gray-600">I offer flexible custom packages designed to meet your unique needs. Unlike pre-arranged options, custom packages let you choose specific <br/> features and services that fit your vision. Let’s work together to create something perfect for you!</p>
                     <div className="grid place-items-center">
-                        <button className="items-center justify-center px-2 py-2 mt-5 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-purple-800">
+                        <button className="items-center justify-center px-2 py-2 mt-5 text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl lg:inline-flex hover:bg-pink-700">
                             <table>
                                 <tr>
                                     <td className="px-1 ">
