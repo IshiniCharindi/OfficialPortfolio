@@ -1,3 +1,43 @@
-.mainHeader{
+/* Ensure the mobile menu button stays on top of everything */
+/*.lg\:hidden {*/
+/*    position: fixed;*/
+/*    !*top: 1rem;*!*/
+/*    !*left: 1rem;*!*/
+/*    z-index: 9999;*/
+/*    background-color: white;*/
+/*    border-radius: 0.5rem;*/
+/*    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);*/
+/*    padding: 0.5rem;*/
+/*}*/
+
+/* Mobile menu styles */
+.fixed {
     position: fixed;
+    height: 100vh;
+    width: 16rem;
+    background-color: white;
+    z-index: 40;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 1024px) {
+    .lg\:hidden {
+        display: none;
+    }
+
+    .lg\:block {
+        display: block;
+        position: relative;
+        width: auto;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .lg\:w-1\/5 {
+        width: 20%;
+    }
+
+    .lg\:w-4\/5 {
+        width: 80%;
+    }
 }
