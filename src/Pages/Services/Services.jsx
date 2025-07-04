@@ -1,14 +1,12 @@
-import Header from "../../Components/HeaderComponent/Header.jsx";
+
 import service1 from "../../../public/service1.jpg";
 import bg2 from "../../../public/bg2.jpg";
 
 const Services = () => {
     return(
 
-        <div  className="grid grid-cols-5 h-screen">
-            <div className="col-span-1">
-                <Header/>
-            </div>
+        <div  className="h-screen">
+
             <div className="col-span-4">
                 <section className="py-10 bg-[#fdfdfd] sm:py-16 lg:py-24" >
                     <h2 className="text-3xl font-bold text-center leading-tight text-black sm:text-4xl lg:text-5xl">Services & Pricing</h2>

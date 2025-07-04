@@ -1,11 +1,9 @@
-import Header from "../../Components/HeaderComponent/Header.jsx";
+
 
 const Porfolio = () => {
     return(
-        <div className="grid grid-cols-5 h-screen ">
-            <div className="col-span-1">
-                <Header/>
-            </div>
+        <div className="h-screen ">
+
             <div className="col-span-4">
             <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">

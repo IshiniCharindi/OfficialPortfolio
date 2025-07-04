@@ -1,13 +1,11 @@
 import './App.css'
-import Header from "./Components/HeaderComponent/Header.jsx";
-import AboutMe from "./Pages/AboutMe/AboutMe.jsx";
+import PortfolioLayout from "./Components/HeaderComponent/PortfolioLayout.jsx";
 
 function App() {
 
   return (
     <div>
-        <AboutMe/>
-
+        <PortfolioLayout/>
     </div>
 
 

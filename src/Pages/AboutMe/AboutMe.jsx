@@ -1,22 +1,12 @@
-import Header from "../../Components/HeaderComponent/Header.jsx";
-import "./AboutMe.css"
 import image2 from "../../../public/ishini1.png";
 import bg2 from "../../../public/bg2.jpg";
-import NewHeader from "../../Components/NewHeader.jsx";
 
 const AboutMe = () => {
     return (
-        <div className="flex flex-col lg:flex-row h-screen">
-             {/*Header - will be hidden on mobile and shown via menu button*/}
-            <div className="hidden lg:block lg:w-1/5">
-                <Header/>
-            </div>
-            {/*<NewHeader/>*/}
 
-            {/* Main content */}
-            <div className="w-full lg:w-4/5 overflow-y-auto">
+            <div>
                 <section
-                    className="pt-10 overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16 min-h-screen"
+                    className=" overflow-hidden  min-h-screen"
                     style={{
                         backgroundImage: `url(${bg2})`,
                         backgroundSize: "cover",
@@ -271,7 +261,6 @@ const AboutMe = () => {
 
                 </section>
             </div>
-        </div>
     )
 }
 
