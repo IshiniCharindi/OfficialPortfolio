@@ -14,29 +14,29 @@ const PortfolioLayout = () => {
         home: {
             path: "/",
             title: "About Me",
-            icon: <FiUser size={20} className="text-pink-700" />
+            icon: <FiUser size={20} className="text-gray-600 group-hover:text-pink-600" />
         },
         portfolio: {
             path: "/portfolio",
             title: "My Portfolio",
-            icon: <FiFileText size={20} className="text-pink-700" />
+            icon: <FiFileText size={20} className="text-gray-600 group-hover:text-pink-600" />
         },
         services: {
             path: "/services",
             title: "My Services",
-            icon: <FiUser size={20} className="text-pink-700" />
+            icon: <FiUser size={20} className="text-gray-600 group-hover:text-pink-600" />
         },
         contact: {
             path: "/contact",
             title: "Contact Me",
-            icon: <FiMail size={20} className="text-pink-700" />
+            icon: <FiMail size={20} className="text-gray-600 group-hover:text-pink-600" />
         }
     };
 
-    // Determine active section
+    // Determine active section (exact match only)
     const activeSection = Object.keys(sections).find(key =>
-        location.pathname.startsWith(sections[key].path)
-    ) || 'home';
+        location.pathname === sections[key].path
+    );
 
     // Handle navigation
     const navigateTo = (section) => {
@@ -52,41 +52,44 @@ const PortfolioLayout = () => {
     ];
 
     return (
-        <div className="layout flex h-screen bg-white overflow-hidden font-sans">
+        <div className="flex h-screen bg-white overflow-hidden font-sans">
             {/* Sidebar */}
             <div className={`bg-white border-r border-gray-200 transition-all duration-300 ease-in-out 
-                ${sidebarOpen ? 'w-80' : 'w-0'} flex flex-col fixed md:relative z-20 h-full overflow-hidden shadow-lg`}>
+                ${sidebarOpen ? 'w-72' : 'w-0'} flex flex-col fixed md:relative z-20 h-full overflow-hidden shadow-lg`}>
 
                 {/* Sidebar Content */}
                 {sidebarOpen && (
                     <>
-                        <div className="p-6 flex items-center justify-between border-b border-gray-200">
-                            <div className="flex items-center space-x-3">
-                                <img
-                                    src={image1}
-                                    alt="Profile"
-                                    className="w-12 h-12 rounded-full object-cover border-2 border-pink-700"
-                                />
-                                <h1 className="text-xl font-bold text-gray-800">Ishini Charindi</h1>
-                            </div>
+                        <div className="flex flex-col items-center pt-8 px-6 relative">
+                            {/* Close button (kept in top-right corner) */}
                             <button
                                 onClick={() => setSidebarOpen(false)}
-                                className="text-gray-500 hover:text-pink-700 transition-colors"
+                                className="absolute top-4 right-4 text-gray-500 hover:text-pink-600 transition-colors"
                             >
                                 <FiX size={24} />
                             </button>
+
+                            {/* Profile section */}
+                            <img
+                                src={image1}
+                                alt="Profile"
+                                className="w-24 h-24 rounded-full object-cover border-2 border-pink-600 mb-4"
+                            />
+                            <h1 className="text-xl font-bold text-gray-800">Ishini Charindi</h1>
+                            <p className="text-gray-600 mb-6">Web Developer</p>
+                            <div className="w-full border-t border-gray-200 mb-6"></div>
                         </div>
 
-                        <nav className="flex-1 p-4 overflow-y-auto">
-                            <ul className="space-y-3">
+                        <nav className="flex-1 px-6 overflow-y-auto">
+                            <ul className="space-y-2">
                                 {Object.entries(sections).map(([key, { path, title, icon }]) => (
                                     <li key={key}>
                                         <button
                                             onClick={() => navigateTo(key)}
-                                            className={`w-full flex items-center p-3 rounded-lg transition-all duration-200
+                                            className={`group w-full flex items-center p-3 rounded-lg transition-all duration-200
                                                 ${activeSection === key
-                                                ? 'bg-pink-700 text-white shadow-md'
-                                                : 'text-gray-600 hover:bg-pink-100 hover:text-pink-700'
+                                                ? 'bg-pink-100 text-pink-600'
+                                                : 'text-gray-600 hover:bg-pink-100 hover:text-pink-600'
                                             }`}
                                         >
                                             <span className="mr-3">{icon}</span>
@@ -103,13 +106,13 @@ const PortfolioLayout = () => {
                                     <a
                                         key={social.name}
                                         href="#"
-                                        className="p-2 rounded-full text-gray-600 hover:bg-pink-100 hover:text-pink-700 transition-colors"
+                                        className="p-2 rounded-full text-gray-600 hover:bg-pink-100 hover:text-pink-600 transition-colors"
                                     >
                                         {social.icon}
                                     </a>
                                 ))}
                             </div>
-                            <button className="w-full flex items-center justify-center p-3 rounded-lg bg-pink-700 text-white font-medium hover:bg-pink-800 transition-colors shadow-md hover:shadow-lg">
+                            <button className="w-full flex items-center justify-center p-3 rounded-lg bg-pink-600 text-white font-medium hover:bg-pink-700 transition-colors shadow-md hover:shadow-lg">
                                 <FiMail className="mr-2" size={18} />
                                 Hire Me
                             </button>
@@ -122,18 +125,16 @@ const PortfolioLayout = () => {
             {!sidebarOpen && (
                 <button
                     onClick={() => setSidebarOpen(true)}
-                    className="fixed top-6 left-6 z-30 p-3 bg-white text-pink-700 rounded-full shadow-lg hover:bg-pink-100 transition-colors"
+                    className="fixed top-6 left-6 z-30 p-3 bg-white text-pink-600 rounded-full shadow-lg hover:bg-pink-100 transition-colors"
                 >
                     <FiMenu size={24} />
                 </button>
             )}
 
             {/* Main Content */}
-
-                <main className="main w-full">
-                    <Outlet />
-                </main>
-
+            <div className={`flex-1 overflow-auto transition-all duration-300 ${sidebarOpen ? 'ml-0' : 'ml-0'}`}>
+                <Outlet />
+            </div>
         </div>
     );
 };
