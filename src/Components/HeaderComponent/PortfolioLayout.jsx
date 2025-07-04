@@ -75,7 +75,7 @@ const PortfolioLayout = () => {
                                 alt="Profile"
                                 className="w-24 h-24 rounded-full object-cover border-2 border-pink-600 mb-4"
                             />
-                            <h1 className="text-xl font-bold text-gray-800">Ishini Charindi</h1>
+                            <h1 className="text-xl font-bold text-gray-800">Ishini Dewamiththa</h1>
                             <p className="text-gray-600 mb-6">Web Developer</p>
                             <div className="w-full border-t border-gray-200 mb-6"></div>
                         </div>
