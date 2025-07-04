@@ -1,10 +1,10 @@
-import image2 from "../../../public/ishini1.png";
-import bg2 from "../../../public/bg2.jpg";
+import image2 from "../../assets/ishini1.png";
+import bg2 from "../../assets/bg2.jpg";
 
 const AboutMe = () => {
     return (
 
-            <div>
+        <div className="about w-full min-h-screen overflow-hidden">
                 <section
                     className=" overflow-hidden  min-h-screen"
                     style={{

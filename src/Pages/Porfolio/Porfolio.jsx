@@ -2,7 +2,7 @@
 
 const Porfolio = () => {
     return(
-        <div className="h-screen ">
+        <div className="portfolio">
 
             <div className="col-span-4">
             <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">

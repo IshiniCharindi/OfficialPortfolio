@@ -1,11 +1,11 @@
 
-import service1 from "../../../public/service1.jpg";
-import bg2 from "../../../public/bg2.jpg";
+import service1 from "../../assets/service1.jpg";
+import bg2 from "../../assets/bg2.jpg";
 
 const Services = () => {
     return(
 
-        <div  className="h-screen">
+        <div  className="services">
 
             <div className="col-span-4">
                 <section className="py-10 bg-[#fdfdfd] sm:py-16 lg:py-24" >

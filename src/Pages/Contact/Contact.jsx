@@ -1,7 +1,7 @@
 
 const Contact = () => {
     return(
-        <div  className="h-screen">
+        <div  className="contact">
 
             <div className="col-span-4">
                 <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
