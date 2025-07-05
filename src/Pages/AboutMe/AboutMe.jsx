@@ -1,3 +1,4 @@
+// AboutMe.jsx
 import image2 from "../../assets/ishini1.png";
 import bg2 from "../../assets/bg2.jpg";
 import SkillsSection from "./SkillsSection.jsx";
@@ -7,44 +8,44 @@ import HeroSection from "./HeroSection.jsx";
 const AboutMe = () => {
     const activities = [
         {
-            title: "Public Speaking",
-            icon: "🎤",
-            description: "Competed in national level debate competitions and won several awards"
+            title: "2025",
+            description: "Webmaster of IEEE WIE UWU"
         },
         {
-            title: "Photography",
-            icon: "📷",
-            description: "Passionate about landscape and portrait photography, exhibited work locally"
+            title: "2024",
+            description: "Co-Founder @ Soft Detroits"
         },
         {
-            title: "Volunteering",
-            icon: "🤝",
-            description: "Active member of Rotaract club, organized charity events and community projects"
+            title: "2022",
+            description: "Active member of UWU Dancing Circle"
         },
         {
-            title: "Creative Writing",
-            icon: "✍️",
-            description: "Published short stories in university literary magazine"
+            title: "2022",
+            description: "Active member of UWU Chess Team"
         },
         {
-            title: "Hiking",
-            icon: "⛰️",
-            description: "Completed several challenging trails including Adam's Peak night climb"
+            title: "2022",
+            description: "Active member of IEEE UWU Student Branch"
         },
         {
-            title: "Chess",
-            icon: "♟️",
-            description: "University chess team member, participated in inter-university tournaments"
+            title: "2021",
+            description: "Assistant Manager @ Kandy Backpackers Hostel"
         },
         {
-            title: "Music",
-            icon: "🎵",
-            description: "Play violin in local orchestra, performed at cultural events"
+            title: "2021",
+            description: "Call Center Agent @ BPO Connect"
         },
         {
-            title: "Dancing",
-            icon: "💃",
-            description: "Trained in traditional Sri Lankan dance forms since childhood"
+            title: "2020",
+            description: "Trainee @ Bank Of Ceylon"
+        },
+        {
+            title: "2019",
+            description: "Completed GCE A/L"
+        },
+        {
+            title: "2016",
+            description: "Completed GCE O/L"
         }
     ];
 
