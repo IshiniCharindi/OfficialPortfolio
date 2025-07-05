@@ -20,7 +20,7 @@ const AboutMe = () => {
                             <h2 className="text-3xl font-bold leading-tight text-gray-800 sm:text-4xl lg:text-5xl mb-2">
                                 Hey, I am
                             </h2>
-                            <h1 className="text-4xl sm:text-7xl text-gray-900 font-bold leading-tight mb-6">
+                            <h1 className="text-3xl sm:text-6xl text-gray-900 font-bold leading-tight mb-6">
                                 Ishini Dewamiththa
                             </h1>
                             <h3 className="text-2xl sm:text-3xl text-pink-600 font-semibold mb-8">

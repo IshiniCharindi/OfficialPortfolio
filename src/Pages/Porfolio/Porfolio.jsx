@@ -1,114 +1,278 @@
+import { useState } from 'react';
 
+const Portfolio = () => {
+    // Project data array
+    const projects = [
+        {
+            id: 1,
+            title: "E-Commerce Platform",
+            description: "A full-featured online store with payment integration, inventory management, and admin dashboard.",
+            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+            image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            demoLink: "https://example-ecommerce.com",
+            githubLink: "https://github.com/username/ecommerce-platform",
+        },
+        {
+            id: 2,
+            title: "Task Management App",
+            description: "Productivity application with team collaboration features, real-time updates, and analytics.",
+            technologies: ["React", "Firebase", "Redux", "Material UI"],
+            image: "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            demoLink: "https://example-taskapp.com",
+            githubLink: "https://github.com/username/task-management",
+        },
+        {
+            id: 3,
+            title: "Health & Fitness Tracker",
+            description: "Mobile-first application for tracking workouts, nutrition, and health metrics with data visualization.",
+            technologies: ["React Native", "GraphQL", "PostgreSQL", "D3.js"],
+            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            demoLink: "https://example-fitnesstracker.com",
+            githubLink: "https://github.com/username/fitness-tracker",
+        },
+        {
+            id: 4,
+            title: "AI Content Generator",
+            description: "Web application leveraging OpenAI API to generate marketing content and blog posts.",
+            technologies: ["Next.js", "Tailwind CSS", "OpenAI API", "Node.js"],
+            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            demoLink: "https://example-aicontent.com",
+            githubLink: "https://github.com/username/ai-content-generator",
+        },
+        {
+            id: 5,
+            title: "Real Estate Marketplace",
+            description: "Property listing platform with advanced search filters, virtual tours, and agent connections.",
+            technologies: ["React", "Mapbox", "Express.js", "MongoDB"],
+            image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            demoLink: "https://example-realestate.com",
+            githubLink: "https://github.com/username/real-estate-app",
+        },
+        {
+            id: 6,
+            title: "Social Media Dashboard",
+            description: "Analytics dashboard for social media managers with cross-platform metrics and reporting.",
+            technologies: ["Vue.js", "Django", "Chart.js", "AWS"],
+            image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            demoLink: "https://example-socialdashboard.com",
+            githubLink: "https://github.com/username/social-dashboard",
+        }
+    ];
 
-const Porfolio = () => {
-    return(
-        <div className="portfolio">
+    // State for view toggle and pagination
+    const [isGridView, setIsGridView] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const projectsPerPage = 6;
 
-            <div className="col-span-4">
-            <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
+    // Calculate pagination
+    const indexOfLastProject = currentPage * projectsPerPage;
+    const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+    const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    return (
+        <div className="portfolio bg-gray-50">
+            <section className="py-12 sm:py-16 lg:py-20">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                    <div className="max-w-2xl mx-auto text-center">
-                        <h2 className="text-2xl font-bold leading-tight text-black sm:text-3xl lg:text-4xl">Collection Of My Best Projects</h2>
-                        <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-500">With many years in web development, I acquired extensive experience working on projects across multiple industries and technologies. Let me show you my best creations.
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
+                            My Projects
+                        </h2>
+                        <p className="max-w-2xl mx-auto mt-4 text-lg leading-relaxed text-gray-600">
+                            A collection of my work showcasing my skills across various technologies.
                         </p>
                     </div>
 
-                    <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full lg:gap-14">
-                        <div className="flex flex-col overflow-hidden bg-white shadow-md rounded-xl">
-                            <div className="flex flex-col justify-between flex-1 px-5 py-6">
-                                {/*<div className="flex-shrink-0">*/}
-                                {/*    <span className="block text-xs font-semibold tracking-widest text-orange-500 uppercase"> Lifestyle </span>*/}
-                                {/*</div>*/}
-
-                                <div className="flex-1 mt-28">
-                                    <p className="text-2xl font-semibold">
-                                        <a href="#" title="" className="text-black"> Power of habit: How to learn anything in 30 days. </a>
-                                    </p>
-                                    <p className="mt-4 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                                </div>
-                            </div>
-
-                            <div className="border-t border-gray-200">
-                                <div className="flex">
-                                    <div className="flex items-center flex-1 px-6 py-5">
-                                        <span className="flex-1 block min-w-0 ml-3 text-base font-semibold text-gray-900 truncate"> Wade Warren </span>
-                                    </div>
-
-                                    <a href="#" title="" className="inline-flex items-center flex-shrink-0 px-4 py-5 text-base font-semibold transition-all duration-200 bg-white border-l border-gray-200 hover:bg-[#36454F] hover:text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col overflow-hidden bg-white shadow-md rounded-xl">
-                            <div className="flex flex-col justify-between flex-1 px-5 py-6">
-                                {/*<div className="flex-shrink-0">*/}
-                                {/*    <span className="block text-xs font-semibold tracking-widest text-orange-500 uppercase"> Technology </span>*/}
-                                {/*</div>*/}
-
-                                <div className="flex-1 mt-28">
-                                    <p className="text-2xl font-semibold">
-                                        <a href="#" title="" className="text-black"> 10 Zoom hacks you can do for productive meetings. </a>
-                                    </p>
-                                    <p className="mt-4 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                                </div>
-                            </div>
-
-                            <div className="border-t border-gray-200">
-                                <div className="flex">
-                                    <div className="flex items-center flex-1 px-6 py-5">
-                                        <span className="flex-1 block min-w-0 ml-3 text-base font-semibold text-gray-900 truncate"> Leslie Alexander </span>
-                                    </div>
-
-                                    <a href="#" title="" className="inline-flex items-center flex-shrink-0 px-4 py-5 text-base font-semibold transition-all duration-200 bg-white border-l border-gray-200 hover:bg-[#36454F] hover:text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col overflow-hidden bg-white shadow-md rounded-xl">
-                            <div className="flex flex-col justify-between flex-1 px-5 py-6">
-                                {/*<div className="flex-shrink-0">*/}
-                                {/*    <span className="block text-xs font-semibold tracking-widest text-orange-500 uppercase"> Marketing </span>*/}
-                                {/*</div>*/}
-
-                                <div className="flex-1 mt-28">
-                                    <p className="text-2xl font-semibold">
-                                        <a href="#" title="" className="text-black"> 6 Product launching emails you want to use next. </a>
-                                    </p>
-                                    <p className="mt-4 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                                </div>
-                            </div>
-
-                            <div className="border-t border-gray-200">
-                                <div className="flex">
-                                    <div className="flex items-center flex-1 px-6 py-5">
-                                        <span className="flex-1 block min-w-0 ml-3 text-base font-semibold text-gray-900 truncate"> Jenny Wilson </span>
-                                    </div>
-
-                                    <a href="#" title="" class="inline-flex items-center flex-shrink-0 px-4 py-5 text-base font-semibold transition-all duration-200 bg-white border-l border-gray-200 hover:bg-[#36454F] hover:text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    {/* View Toggle */}
+                    <div className="flex justify-end mt-8 mb-6 space-x-2">
+                        <button
+                            onClick={() => setIsGridView(true)}
+                            className={`p-2 rounded-md ${isGridView ? 'bg-pink-500 text-white' : 'bg-white text-gray-700'}`}
+                            title="Grid View"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                        </button>
+                        <button
+                            onClick={() => setIsGridView(false)}
+                            className={`p-2 rounded-md ${!isGridView ? 'bg-pink-500 text-white' : 'bg-white text-gray-700'}`}
+                            title="List View"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
                     </div>
+
+                    {/* Projects Display */}
+                    {isGridView ? (
+                        <div className="grid max-w-6xl grid-cols-1 gap-8 mx-auto mt-8 md:grid-cols-2 lg:grid-cols-3">
+                            {currentProjects.map((project) => (
+                                <div key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                    <div className="relative h-48 overflow-hidden">
+                                        <img
+                                            className="object-cover w-full h-full"
+                                            src={project.image}
+                                            alt={project.title}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent"></div>
+                                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                                            <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-col justify-between flex-1 p-6">
+                                        <div className="flex-1">
+                                            <p className="mt-2 text-gray-600">{project.description}</p>
+
+                                            <div className="mt-4">
+                                                <div className="flex flex-wrap gap-2">
+                                                    {project.technologies.map((tech, index) => (
+                                                        <span
+                                                            key={index}
+                                                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-100 text-pink-800"
+                                                        >
+                              {tech}
+                            </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center justify-between mt-6 border-t border-gray-200 pt-4">
+                                            <a
+                                                href={project.demoLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center text-sm font-medium text-pink-600 hover:text-pink-800"
+                                            >
+                                                Live Demo
+                                                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                            <a
+                                                href={project.githubLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-800"
+                                            >
+                                                View Code
+                                                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="max-w-4xl mx-auto mt-8 space-y-6">
+                            {currentProjects.map((project) => (
+                                <div key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg md:flex-row hover:shadow-xl">
+                                    <div className="relative w-full h-48 md:w-1/3 md:h-auto">
+                                        <img
+                                            className="object-cover w-full h-full"
+                                            src={project.image}
+                                            alt={project.title}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-transparent md:bg-gradient-to-r md:from-pink-900/70 md:to-transparent"></div>
+                                    </div>
+
+                                    <div className="flex flex-col justify-between flex-1 p-6">
+                                        <div>
+                                            <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
+                                            <p className="mt-2 text-gray-600">{project.description}</p>
+
+                                            <div className="mt-4">
+                                                <div className="flex flex-wrap gap-2">
+                                                    {project.technologies.map((tech, index) => (
+                                                        <span
+                                                            key={index}
+                                                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-100 text-pink-800"
+                                                        >
+                              {tech}
+                            </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center justify-between mt-6 border-t border-gray-200 pt-4">
+                                            <a
+                                                href={project.demoLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center text-sm font-medium text-pink-600 hover:text-pink-800"
+                                            >
+                                                Live Demo
+                                                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                            <a
+                                                href={project.githubLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-800"
+                                            >
+                                                View Code
+                                                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Pagination */}
+                    {totalPages > 1 && (
+                        <div className="flex justify-center mt-12">
+                            <nav className="flex items-center space-x-2">
+                                <button
+                                    onClick={() => paginate(Math.max(1, currentPage - 1))}
+                                    disabled={currentPage === 1}
+                                    className="p-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-pink-100"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+
+                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
+                                    <button
+                                        key={number}
+                                        onClick={() => paginate(number)}
+                                        className={`w-10 h-10 rounded-full ${currentPage === number ? 'bg-pink-500 text-white' : 'hover:bg-pink-100'}`}
+                                    >
+                                        {number}
+                                    </button>
+                                ))}
+
+                                <button
+                                    onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
+                                    disabled={currentPage === totalPages}
+                                    className="p-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-pink-100"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </nav>
+                        </div>
+                    )}
                 </div>
             </section>
-            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Porfolio;
+export default Portfolio;
