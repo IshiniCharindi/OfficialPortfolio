@@ -1,7 +1,9 @@
 import image2 from "../../assets/ishini1.png";
 import bg2 from "../../assets/bg2.jpg";
+import {Link, useNavigate} from "react-router-dom";
 
 const HeroSection = () => {
+    const navigate = useNavigate();
     return (
         <section
             className="relative overflow-hidden min-h-screen flex items-center bg-gray-100"
@@ -37,13 +39,17 @@ const HeroSection = () => {
                                 </svg>
                                 View Resume
                             </button>
-                            <button className="flex items-center justify-center px-6 py-3 text-lg font-semibold text-pink-600 transition-all duration-300 bg-white border border-pink-600 rounded-full hover:bg-pink-50 hover:shadow-lg">
+
+                            <button
+                                onClick={()=>navigate('/contact')}
+                                className="flex items-center justify-center px-6 py-3 text-lg font-semibold text-pink-600 transition-all duration-300 bg-white border border-pink-600 rounded-full hover:bg-pink-50 hover:shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-chat-left-text mr-2" viewBox="0 0 16 16">
                                     <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                     <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
                                 </svg>
                                 Contact Me
                             </button>
+
                         </div>
                     </div>
 

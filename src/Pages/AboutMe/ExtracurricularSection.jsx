@@ -1,4 +1,3 @@
-import ActivityCard from "./ActivityCard";
 
 const ExtracurricularSection = ({ activities }) => {
     // Duplicate activities for infinite loop

@@ -112,7 +112,9 @@ const PortfolioLayout = () => {
                                     </a>
                                 ))}
                             </div>
-                            <button className="w-full flex items-center justify-center p-3 rounded-lg bg-pink-600 text-white font-medium hover:bg-pink-700 transition-colors shadow-md hover:shadow-lg">
+                            <button
+                                onClick={()=>navigate('/contact')}
+                                className="w-full flex items-center justify-center p-3 rounded-lg bg-pink-600 text-white font-medium hover:bg-pink-700 transition-colors shadow-md hover:shadow-lg">
                                 <FiMail className="mr-2" size={18} />
                                 Hire Me
                             </button>
