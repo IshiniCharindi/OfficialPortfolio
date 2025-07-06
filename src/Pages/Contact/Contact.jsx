@@ -4,6 +4,34 @@ const Contact = () => {
     const location = useLocation();
     const { state } = location;
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name: e.target[0].value,
+            email: e.target[1].value,
+            phone: e.target[2].value,
+            company: e.target[3].value,
+            message: e.target[4].value,
+            selectedPackage: state?.selectedPackage || '',
+            packagePrice: state?.packagePrice || '',
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            alert(data.message);
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+    };
+
+
     return (
         <div className="contact">
             <div className="col-span-4">
@@ -77,7 +105,7 @@ const Contact = () => {
                                 <div className="px-6 py-12 sm:p-12">
                                     <h3 className="text-3xl font-semibold text-center text-gray-900">Send me a message</h3>
 
-                                    <form action="#" method="POST" className="mt-14">
+                                    <form action="#" method="POST" className="mt-14" onSubmit={handleSubmit}>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                                             <div>
                                                 <label className="text-base font-medium text-gray-900">Your name</label>
