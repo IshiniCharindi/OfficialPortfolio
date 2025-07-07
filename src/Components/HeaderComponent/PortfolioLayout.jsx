@@ -58,7 +58,7 @@ const PortfolioLayout = () => {
         {
             icon: <FaLinkedin size={18} />,
             name: 'linkedin',
-            url: 'www.linkedin.com/in/ishini-dewamiththa-1699b1244'
+            url: 'https://www.linkedin.com/in/ishini-dewamiththa-1699b1244/'
         },
         {
             icon: <FiGithub size={18} />,
