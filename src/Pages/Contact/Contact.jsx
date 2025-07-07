@@ -1,8 +1,11 @@
 import { useLocation } from 'react-router-dom';
+import Toast from "../../Components/Toast.jsx";
+import {useState} from "react";
 
 const Contact = () => {
     const location = useLocation();
     const { state } = location;
+    const [toast, setToast] = useState({ show: false, message: '', type: '' });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,14 +28,46 @@ const Contact = () => {
             });
 
             const data = await response.json();
-            alert(data.message);
+
+            // Show success toast
+            setToast({
+                show: true,
+                message: data.message || 'Your message has been sent successfully!',
+                type: 'success'
+            });
+
+            // Reset form after successful submission
+            e.target.reset();
+
+            // Hide toast after 5 seconds
+            setTimeout(() => {
+                setToast({ show: false, message: '', type: '' });
+            }, 5000);
+
         } catch (err) {
-            alert('Something went wrong. Please try again.');
+            // Show error toast
+            setToast({
+                show: true,
+                message: 'Something went wrong. Please try again.',
+                type: 'error'
+            });
+
+            // Hide toast after 5 seconds
+            setTimeout(() => {
+                setToast({ show: false, message: '', type: '' });
+            }, 5000);
         }
     };
 
     return (
         <div className="contact">
+            {toast.show && (
+                <Toast
+                    message={toast.message}
+                    type={toast.type}
+                    onClose={() => setToast({ show: false, message: '', type: '' })}
+                />
+            )}
             <section className="py-6 sm:py-10 lg:py-16 bg-gray-100">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     {/* Header Section */}
