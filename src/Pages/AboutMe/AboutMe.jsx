@@ -13,7 +13,7 @@ const AboutMe = () => {
         },
         {
             title: "2024",
-            description: "Co-Founder @ Soft Detroits"
+            description: "Co-Founder at Soft Detroits"
         },
         {
             title: "2022",
@@ -29,15 +29,15 @@ const AboutMe = () => {
         },
         {
             title: "2021",
-            description: "Assistant Manager @ Kandy Backpackers Hostel"
+            description: "Assistant Manager at Kandy Backpackers Hostel"
         },
         {
             title: "2021",
-            description: "Call Center Agent @ BPO Connect"
+            description: "Call Center Agent at BPO Connect"
         },
         {
             title: "2020",
-            description: "Trainee @ Bank Of Ceylon"
+            description: "Trainee at Bank Of Ceylon"
         },
         {
             title: "2019",

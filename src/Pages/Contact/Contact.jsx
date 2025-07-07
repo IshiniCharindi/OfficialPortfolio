@@ -84,10 +84,10 @@ const Contact = () => {
 
                     {/* Package Selected Notification */}
                     {state?.selectedPackage && (
-                        <div className="max-w-2xl mx-auto mb-6 p-4 sm:p-6 sm:mb-8 bg-green-50 border-l-4 border-green-500 rounded-lg">
+                        <div className="max-w-2xl mx-auto mb-6 p-4 sm:p-6 sm:mb-8 bg-pink-50 border-l-4 border-green-500 rounded-lg">
                             <div className="flex">
                                 <div className="flex-shrink-0">
-                                    <svg className="h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg className="h-5 w-5 text-pink-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                     </svg>
                                 </div>
@@ -136,15 +136,23 @@ const Contact = () => {
                             </div>
 
                             {/* Address Card */}
-                            <div className="overflow-hidden bg-white border rounded-lg sm:rounded-xl">
-                                <div className="p-4 sm:p-6">
-                                    <svg className="flex-shrink-0 w-8 h-8 mx-auto text-pink-700 sm:w-10 sm:h-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="overflow-hidden bg-white border rounded-lg sm:rounded-xl h-full">
+                                <div className="p-4 sm:p-6 h-full flex flex-col">
+                                    <svg
+                                        className="flex-shrink-0 w-8 h-8 mx-auto text-pink-700 sm:w-10 sm:h-10"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
-                                    <p className="mt-4 text-base font-medium leading-relaxed text-gray-900 sm:text-lg">
-                                        10,Selligewathta,Ampitiya,<br/>Kandy,SriLanka
-                                    </p>
+                                    <div className="mt-4 flex-1 overflow-hidden">
+                                        <p className="text-base font-medium text-gray-900 sm:text-lg break-words whitespace-pre-line overflow-ellipsis overflow-hidden">
+                                            10, Selligewaththa, Ampitiya, Kandy, Sri Lanka
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
