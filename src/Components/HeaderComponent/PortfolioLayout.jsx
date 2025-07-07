@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { FiUser, FiFileText, FiMail, FiMenu, FiX, FiGithub } from 'react-icons/fi';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin } from 'react-icons/fa';
 import image1 from "../../assets/ishini2.png";
 
 const PortfolioLayout = () => {
@@ -43,12 +43,28 @@ const PortfolioLayout = () => {
         navigate(sections[section].path);
     };
 
-    // Social icons data
+    // Social icons data with actual links
     const socialIcons = [
-        { icon: <FaFacebook size={18} />, name: 'facebook' },
-        { icon: <FaInstagram size={18} />, name: 'instagram' },
-        { icon: <FaLinkedin size={18} />, name: 'linkedin' },
-        { icon: <FiGithub size={18} />, name: 'github' }
+        {
+            icon: <FaFacebook size={18} />,
+            name: 'facebook',
+            url: 'https://www.facebook.com/profile.php?id=61574895043508'
+        },
+        {
+            icon: <FiMail size={18} />,
+            name: 'email',
+            url: 'mailto:ishinidewamiththa@gmail.com'
+        },
+        {
+            icon: <FaLinkedin size={18} />,
+            name: 'linkedin',
+            url: 'www.linkedin.com/in/ishini-dewamiththa-1699b1244'
+        },
+        {
+            icon: <FiGithub size={18} />,
+            name: 'github',
+            url: 'https://github.com/IshiniCharindi'
+        }
     ];
 
     return (
@@ -105,7 +121,9 @@ const PortfolioLayout = () => {
                                 {socialIcons.map((social) => (
                                     <a
                                         key={social.name}
-                                        href="#"
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="p-2 rounded-full text-gray-600 hover:bg-pink-100 hover:text-pink-600 transition-colors"
                                     >
                                         {social.icon}
