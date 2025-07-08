@@ -5,14 +5,16 @@
 }
 
 /* Add to your global CSS */
-@keyframes vertical-scroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+@keyframes horizontal-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% / 3)); } /* Adjusted for smoother looping */
 }
 
-.animate-vertical-scroll {
-    animation: vertical-scroll 40s linear infinite;
+.animate-horizontal-scroll {
+    animation: horizontal-scroll 55s linear infinite; /* Slower for more items */
+    width: calc(300% / 1); /* Wider container for more items */
 }
+
 
 @keyframes ping-pink {
     0% { transform: scale(0.8); opacity: 0.8; }
@@ -27,12 +29,12 @@
 }
 
 .animate-ping-pink {
-    animation: ping-pink 2s cubic-bezier(0,0,0.2,1) infinite;
+    animation: ping-pink 1.5s cubic-bezier(0,0,0.2,1) infinite;
 }
 
 .animate-ping-indigo {
-    animation: ping-indigo 2s cubic-bezier(0,0,0.2,1) infinite;
-    animation-delay: 0.5s;
+    animation: ping-indigo 1.5s cubic-bezier(0,0,0.2,1) infinite;
+    animation-delay: 0.3s;
 }
 
 @keyframes fadeInUp {
