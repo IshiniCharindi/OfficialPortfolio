@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const Portfolio = () => {
-    // Project data array
+    // Project data array - all projects now use 'images' array
     const projects = [
         {
             id: 1,
             title: "E-Commerce Platform",
             description: "A full-featured online store with payment integration, inventory management, and admin dashboard.",
             technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-            image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            images: [
+                "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ],
             demoLink: "https://example-ecommerce.com",
             githubLink: "https://github.com/username/ecommerce-platform",
         },
@@ -17,7 +22,9 @@ const Portfolio = () => {
             title: "Task Management App",
             description: "Productivity application with team collaboration features, real-time updates, and analytics.",
             technologies: ["React", "Firebase", "Redux", "Material UI"],
-            image: "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            images: [
+                "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ],
             demoLink: "https://example-taskapp.com",
             githubLink: "https://github.com/username/task-management",
         },
@@ -26,7 +33,9 @@ const Portfolio = () => {
             title: "Health & Fitness Tracker",
             description: "Mobile-first application for tracking workouts, nutrition, and health metrics with data visualization.",
             technologies: ["React Native", "GraphQL", "PostgreSQL", "D3.js"],
-            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            images: [
+                "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ],
             demoLink: "https://example-fitnesstracker.com",
             githubLink: "https://github.com/username/fitness-tracker",
         },
@@ -35,7 +44,9 @@ const Portfolio = () => {
             title: "AI Content Generator",
             description: "Web application leveraging OpenAI API to generate marketing content and blog posts.",
             technologies: ["Next.js", "Tailwind CSS", "OpenAI API", "Node.js"],
-            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            images: [
+                "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ],
             demoLink: "https://example-aicontent.com",
             githubLink: "https://github.com/username/ai-content-generator",
         },
@@ -44,7 +55,9 @@ const Portfolio = () => {
             title: "Real Estate Marketplace",
             description: "Property listing platform with advanced search filters, virtual tours, and agent connections.",
             technologies: ["React", "Mapbox", "Express.js", "MongoDB"],
-            image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            images: [
+                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ],
             demoLink: "https://example-realestate.com",
             githubLink: "https://github.com/username/real-estate-app",
         },
@@ -53,15 +66,17 @@ const Portfolio = () => {
             title: "Social Media Dashboard",
             description: "Analytics dashboard for social media managers with cross-platform metrics and reporting.",
             technologies: ["Vue.js", "Django", "Chart.js", "AWS"],
-            image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            images: [
+                "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ],
             demoLink: "https://example-socialdashboard.com",
             githubLink: "https://github.com/username/social-dashboard",
         }
     ];
 
-    // State for view toggle and pagination
     const [isGridView, setIsGridView] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
+    const [currentImageIndices, setCurrentImageIndices] = useState({});
     const projectsPerPage = 6;
 
     // Calculate pagination
@@ -72,6 +87,56 @@ const Portfolio = () => {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Image slider navigation
+    const nextImage = (projectId) => {
+        const project = projects.find(p => p.id === projectId);
+        setCurrentImageIndices(prev => ({
+            ...prev,
+            [projectId]: (prev[projectId] || 0) >= project.images.length - 1 ? 0 : (prev[projectId] || 0) + 1
+        }));
+    };
+
+    const prevImage = (projectId) => {
+        const project = projects.find(p => p.id === projectId);
+        setCurrentImageIndices(prev => ({
+            ...prev,
+            [projectId]: (prev[projectId] || 0) <= 0 ? project.images.length - 1 : (prev[projectId] || 0) - 1
+        }));
+    };
+
+    // Auto-slide effect
+    useEffect(() => {
+        // Only set up auto-slide for projects with multiple images
+        const multiImageProjects = projects.filter(p => p.images.length > 1);
+
+        if (multiImageProjects.length === 0) return;
+
+        const intervalIds = multiImageProjects.map(project => {
+            return setInterval(() => {
+                setCurrentImageIndices(prev => ({
+                    ...prev,
+                    [project.id]: (prev[project.id] || 0) >= project.images.length - 1 ? 0 : (prev[project.id] || 0) + 1
+                }));
+            }, 3000); // Change image every 3 seconds
+        });
+
+        // Clean up intervals on component unmount
+        return () => {
+            intervalIds.forEach(id => clearInterval(id));
+        };
+    }, [projects]);
+
+    // Pause auto-slide on hover
+    const [pausedSlides, setPausedSlides] = useState({});
+
+    const handleMouseEnter = (projectId) => {
+        setPausedSlides(prev => ({ ...prev, [projectId]: true }));
+    };
+
+    const handleMouseLeave = (projectId) => {
+        setPausedSlides(prev => ({ ...prev, [projectId]: false }));
+    };
 
     return (
         <div className="portfolio bg-gray-50">
@@ -112,14 +177,74 @@ const Portfolio = () => {
                     {isGridView ? (
                         <div className="grid max-w-6xl grid-cols-1 gap-8 mx-auto mt-8 md:grid-cols-2 lg:grid-cols-3">
                             {currentProjects.map((project) => (
-                                <div key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1">
-                                    <div className="relative h-48 overflow-hidden">
-                                        <img
-                                            className="object-cover w-full h-full"
-                                            src={project.image}
-                                            alt={project.title}
-                                        />
+                                <div
+                                    key={project.id}
+                                    className="flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1"
+                                    onMouseEnter={() => handleMouseEnter(project.id)}
+                                    onMouseLeave={() => handleMouseLeave(project.id)}
+                                >
+                                    <div className="relative h-48 overflow-hidden group">
+                                        {/* Project Images */}
+                                        {project.images.map((image, index) => (
+                                            <img
+                                                key={index}
+                                                className={`absolute object-cover w-full h-full transition-opacity duration-500 ${index === (currentImageIndices[project.id] || 0) ? 'opacity-100' : 'opacity-0'}`}
+                                                src={image}
+                                                alt={`${project.title} screenshot ${index + 1}`}
+                                                style={{
+                                                    transition: pausedSlides[project.id] ? 'none' : 'opacity 500ms ease-in-out'
+                                                }}
+                                            />
+                                        ))}
+
+                                        {/* Gradient Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent"></div>
+
+                                        {/* Navigation Arrows (only show if multiple images) */}
+                                        {project.images.length > 1 && (
+                                            <>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        prevImage(project.id);
+                                                    }}
+                                                    className="absolute left-0 flex items-center justify-center w-8 h-8 ml-2 text-white transition-opacity duration-300 transform -translate-y-1/2 bg-black rounded-full opacity-0 top-1/2 bg-opacity-30 group-hover:opacity-100 hover:bg-opacity-50"
+                                                >
+                                                    <FiChevronLeft className="w-5 h-5" />
+                                                </button>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        nextImage(project.id);
+                                                    }}
+                                                    className="absolute right-0 flex items-center justify-center w-8 h-8 mr-2 text-white transition-opacity duration-300 transform -translate-y-1/2 bg-black rounded-full opacity-0 top-1/2 bg-opacity-30 group-hover:opacity-100 hover:bg-opacity-50"
+                                                >
+                                                    <FiChevronRight className="w-5 h-5" />
+                                                </button>
+                                            </>
+                                        )}
+
+                                        {/* Image Indicators (only show if multiple images) */}
+                                        {project.images.length > 1 && (
+                                            <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                                                {project.images.map((_, index) => (
+                                                    <button
+                                                        key={index}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setCurrentImageIndices(prev => ({
+                                                                ...prev,
+                                                                [project.id]: index
+                                                            }));
+                                                        }}
+                                                        className={`w-2 h-2 rounded-full transition-all ${index === (currentImageIndices[project.id] || 0) ? 'bg-white w-4' : 'bg-white bg-opacity-50'}`}
+                                                        aria-label={`Go to slide ${index + 1}`}
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {/* Project Title */}
                                         <div className="absolute bottom-0 left-0 right-0 p-4">
                                             <h3 className="text-xl font-semibold text-white">{project.title}</h3>
                                         </div>
@@ -136,8 +261,8 @@ const Portfolio = () => {
                                                             key={index}
                                                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-100 text-pink-800"
                                                         >
-                              {tech}
-                            </span>
+                                                            {tech}
+                                                        </span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -178,7 +303,7 @@ const Portfolio = () => {
                                     <div className="relative w-full h-48 md:w-1/3 md:h-auto">
                                         <img
                                             className="object-cover w-full h-full"
-                                            src={project.image}
+                                            src={project.images[0]}
                                             alt={project.title}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-transparent md:bg-gradient-to-r md:from-pink-900/70 md:to-transparent"></div>
@@ -196,8 +321,8 @@ const Portfolio = () => {
                                                             key={index}
                                                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-100 text-pink-800"
                                                         >
-                              {tech}
-                            </span>
+                                                            {tech}
+                                                        </span>
                                                     ))}
                                                 </div>
                                             </div>
