@@ -1,95 +1,86 @@
 import { useState , useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import sf1 from '../../assets/projects/sarawana flora 1.png'
+import sf2 from '../../assets/projects/sarawana flora 2.png'
+import sf3 from '../../assets/projects/sarawana flora 3.png'
+import mi1 from '../../assets/projects/mas impex 1.png'
+import mi2 from '../../assets/projects/mas impex 2.png'
+import mi3 from '../../assets/projects/mas impex 3.png'
+import gc1 from '../../assets/projects/G capital 1.png'
+import gc2 from '../../assets/projects/G capital 2.png'
+import gc3 from '../../assets/projects/G capital 3.png'
+import sd1 from '../../assets/projects/softdetroits 1.png'
+import sd2 from '../../assets/projects/softdetroits 2.png'
+import sd3 from '../../assets/projects/softdetroits 3.png'
+
+
 
 const Portfolio = () => {
-    // Project data array - all projects now use 'images' array
+
     const projects = [
         {
             id: 1,
-            title: "E-Commerce Platform",
-            description: "A full-featured online store with payment integration, inventory management, and admin dashboard.",
-            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+            title: "Saravana Flora",
+            description: "Saravana Flora’s new website is a modern, user-friendly platform designed for flower enthusiasts to browse, order, and manage floral products effortlessly.",
+            technologies: ["React","Tailwind CSS" ,"Node.js","Express.js", "MySQL"],
             images: [
-                "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                sf1,sf2,sf3
             ],
-            demoLink: "https://example-ecommerce.com",
-            githubLink: "https://github.com/username/ecommerce-platform",
+            demoLink: "https://saravanaflora.lk/",
+            githubLink: "https://github.com/IshiniCharindi/sarawannaFlora",
         },
         {
             id: 2,
-            title: "Task Management App",
-            description: "Productivity application with team collaboration features, real-time updates, and analytics.",
-            technologies: ["React", "Firebase", "Redux", "Material UI"],
+            title: "Mas Impex (PVT) lTD",
+            description: "MAS Impex Pvt Ltd’s new website is a sleek, professional platform that showcases their global import-export services, making it easy for partners to explore, connect, and collaborate with confidence.",
+            technologies: ["React","Tailwind CSS" ,"Node.js","Express.js", "Mongo DB"],
             images: [
-                "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+               mi1,mi2,mi3
             ],
-            demoLink: "https://example-taskapp.com",
-            githubLink: "https://github.com/username/task-management",
+            demoLink: "https://masimpex.lk/",
+            githubLink: "https://github.com/sachinduKavi/Mas-Imepx-Official",
         },
         {
             id: 3,
-            title: "Health & Fitness Tracker",
-            description: "Mobile-first application for tracking workouts, nutrition, and health metrics with data visualization.",
-            technologies: ["React Native", "GraphQL", "PostgreSQL", "D3.js"],
+            title: "G capital Trading",
+            description: "Designed and developed a modern, responsive website for G Capital Trading FZE, a UAE-based exporter, to strengthen their global presence and highlight their commitment to streamlining international trade.",
+            technologies: ["React","Tailwind CSS" ,"Node.js","Express.js"],
             images: [
-                "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                gc1,gc2,gc3
             ],
-            demoLink: "https://example-fitnesstracker.com",
-            githubLink: "https://github.com/username/fitness-tracker",
+            demoLink: "https://gcapitaltrading.com/",
+            githubLink: "https://github.com/Sajan-Hirusha/GCapital",
         },
         {
             id: 4,
-            title: "AI Content Generator",
-            description: "Web application leveraging OpenAI API to generate marketing content and blog posts.",
-            technologies: ["Next.js", "Tailwind CSS", "OpenAI API", "Node.js"],
+            title: "Soft Detroits",
+            description: "Proudly designed and developed the official website for our first-ever startup, SoftDetroits Pvt Ltd — a bold step into the world of digital innovation and smart tech solutions.",
+            technologies: ["React","Tailwind CSS" ,"Node.js","Express.js"],
             images: [
-                "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                sd1,sd2,sd3
             ],
-            demoLink: "https://example-aicontent.com",
-            githubLink: "https://github.com/username/ai-content-generator",
+            demoLink: "https://softdetroits.com/",
+            githubLink: "https://github.com/IshiniCharindi/SoftDetriots",
         },
-        {
-            id: 5,
-            title: "Real Estate Marketplace",
-            description: "Property listing platform with advanced search filters, virtual tours, and agent connections.",
-            technologies: ["React", "Mapbox", "Express.js", "MongoDB"],
-            images: [
-                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-            ],
-            demoLink: "https://example-realestate.com",
-            githubLink: "https://github.com/username/real-estate-app",
-        },
-        {
-            id: 6,
-            title: "Social Media Dashboard",
-            description: "Analytics dashboard for social media managers with cross-platform metrics and reporting.",
-            technologies: ["Vue.js", "Django", "Chart.js", "AWS"],
-            images: [
-                "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-            ],
-            demoLink: "https://example-socialdashboard.com",
-            githubLink: "https://github.com/username/social-dashboard",
-        }
+
     ];
 
     const [isGridView, setIsGridView] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentImageIndices, setCurrentImageIndices] = useState({});
     const [pausedSlides, setPausedSlides] = useState({});
-    const projectsPerPage = 4;
+    const projectsPerPage = 3;
 
-    // Calculate pagination
+
     const indexOfLastProject = currentPage * projectsPerPage;
     const indexOfFirstProject = indexOfLastProject - projectsPerPage;
     const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
     const totalPages = Math.ceil(projects.length / projectsPerPage);
 
-    // Change page
+
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // Image slider navigation
+
     const nextImage = (projectId) => {
         const project = projects.find(p => p.id === projectId);
         setCurrentImageIndices(prev => ({
@@ -106,7 +97,7 @@ const Portfolio = () => {
         }));
     };
 
-    // Auto-slide effect for all projects with multiple images
+
     useEffect(() => {
         const multiImageProjects = projects.filter(p => p.images.length > 1);
         if (multiImageProjects.length === 0) return;
@@ -119,7 +110,7 @@ const Portfolio = () => {
                         [project.id]: (prev[project.id] || 0) >= project.images.length - 1 ? 0 : (prev[project.id] || 0) + 1
                     }));
                 }
-            }, 1000);
+            }, 2000);
         });
 
         return () => {
@@ -168,10 +159,9 @@ const Portfolio = () => {
                 />
             ))}
 
-            {/* Gradient Overlay */}
+
             <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-transparent md:bg-gradient-to-r md:from-pink-900/70 md:to-transparent"></div>
 
-            {/* Navigation Arrows */}
             <button
                 onClick={(e) => {
                     e.stopPropagation();
@@ -191,7 +181,7 @@ const Portfolio = () => {
                 <FiChevronRight className="w-5 h-5" />
             </button>
 
-            {/* Image Indicators */}
+
             <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
                 {project.images.map((_, index) => (
                     <button
