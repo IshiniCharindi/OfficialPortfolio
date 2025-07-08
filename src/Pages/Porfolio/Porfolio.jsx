@@ -77,7 +77,8 @@ const Portfolio = () => {
     const [isGridView, setIsGridView] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentImageIndices, setCurrentImageIndices] = useState({});
-    const projectsPerPage = 6;
+    const [pausedSlides, setPausedSlides] = useState({});
+    const projectsPerPage = 4;
 
     // Calculate pagination
     const indexOfLastProject = currentPage * projectsPerPage;
@@ -105,30 +106,26 @@ const Portfolio = () => {
         }));
     };
 
-    // Auto-slide effect
+    // Auto-slide effect for all projects with multiple images
     useEffect(() => {
-        // Only set up auto-slide for projects with multiple images
         const multiImageProjects = projects.filter(p => p.images.length > 1);
-
         if (multiImageProjects.length === 0) return;
 
         const intervalIds = multiImageProjects.map(project => {
             return setInterval(() => {
-                setCurrentImageIndices(prev => ({
-                    ...prev,
-                    [project.id]: (prev[project.id] || 0) >= project.images.length - 1 ? 0 : (prev[project.id] || 0) + 1
-                }));
-            }, 3000); // Change image every 3 seconds
+                if (!pausedSlides[project.id]) {
+                    setCurrentImageIndices(prev => ({
+                        ...prev,
+                        [project.id]: (prev[project.id] || 0) >= project.images.length - 1 ? 0 : (prev[project.id] || 0) + 1
+                    }));
+                }
+            }, 1000);
         });
 
-        // Clean up intervals on component unmount
         return () => {
             intervalIds.forEach(id => clearInterval(id));
         };
-    }, [projects]);
-
-    // Pause auto-slide on hover
-    const [pausedSlides, setPausedSlides] = useState({});
+    }, [projects, pausedSlides]);
 
     const handleMouseEnter = (projectId) => {
         setPausedSlides(prev => ({ ...prev, [projectId]: true }));
@@ -136,6 +133,83 @@ const Portfolio = () => {
 
     const handleMouseLeave = (projectId) => {
         setPausedSlides(prev => ({ ...prev, [projectId]: false }));
+    };
+
+    // List View Image Slider Component
+    const ListViewImageSlider = ({ project }) => {
+        if (project.images.length <= 1) {
+            return (
+                <div className="relative w-full h-48 md:w-1/3 md:h-auto">
+                    <img
+                        className="object-cover w-full h-full"
+                        src={project.images[0]}
+                        alt={project.title}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-transparent md:bg-gradient-to-r md:from-pink-900/70 md:to-transparent"></div>
+                </div>
+            );
+        }
+    return (
+        <div
+            className="relative w-full h-48 md:w-1/3 md:h-auto group"
+            onMouseEnter={() => handleMouseEnter(project.id)}
+            onMouseLeave={() => handleMouseLeave(project.id)}
+        >
+            {/* Project Images */}
+            {project.images.map((image, index) => (
+                <img
+                    key={index}
+                    className={`absolute object-cover w-full h-full transition-opacity duration-500 ${index === (currentImageIndices[project.id] || 0) ? 'opacity-100' : 'opacity-0'}`}
+                    src={image}
+                    alt={`${project.title} screenshot ${index + 1}`}
+                    style={{
+                        transition: pausedSlides[project.id] ? 'none' : 'opacity 500ms ease-in-out'
+                    }}
+                />
+            ))}
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-transparent md:bg-gradient-to-r md:from-pink-900/70 md:to-transparent"></div>
+
+            {/* Navigation Arrows */}
+            <button
+                onClick={(e) => {
+                    e.stopPropagation();
+                    prevImage(project.id);
+                }}
+                className="absolute left-0 flex items-center justify-center w-8 h-8 ml-2 text-white transition-opacity duration-300 transform -translate-y-1/2 bg-black rounded-full opacity-0 top-1/2 bg-opacity-30 group-hover:opacity-100 hover:bg-opacity-50"
+            >
+                <FiChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+                onClick={(e) => {
+                    e.stopPropagation();
+                    nextImage(project.id);
+                }}
+                className="absolute right-0 flex items-center justify-center w-8 h-8 mr-2 text-white transition-opacity duration-300 transform -translate-y-1/2 bg-black rounded-full opacity-0 top-1/2 bg-opacity-30 group-hover:opacity-100 hover:bg-opacity-50"
+            >
+                <FiChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Image Indicators */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                {project.images.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentImageIndices(prev => ({
+                                ...prev,
+                                [project.id]: index
+                            }));
+                        }}
+                        className={`w-2 h-2 rounded-full transition-all ${index === (currentImageIndices[project.id] || 0) ? 'bg-white w-4' : 'bg-white bg-opacity-50'}`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
     };
 
     return (
@@ -300,14 +374,7 @@ const Portfolio = () => {
                         <div className="max-w-4xl mx-auto mt-8 space-y-6">
                             {currentProjects.map((project) => (
                                 <div key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg md:flex-row hover:shadow-xl">
-                                    <div className="relative w-full h-48 md:w-1/3 md:h-auto">
-                                        <img
-                                            className="object-cover w-full h-full"
-                                            src={project.images[0]}
-                                            alt={project.title}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-transparent md:bg-gradient-to-r md:from-pink-900/70 md:to-transparent"></div>
-                                    </div>
+                                    <ListViewImageSlider project={project} />
 
                                     <div className="flex flex-col justify-between flex-1 p-6">
                                         <div>
