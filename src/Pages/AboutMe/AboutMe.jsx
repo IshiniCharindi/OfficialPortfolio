@@ -1,30 +1,11 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SkillsSection from "./SkillsSection.jsx";
 import ExtracurricularSection from "./ExtracurricularSection.jsx";
 import HeroSection from "./HeroSection.jsx";
+import DoorLoadingAnimation from "../../Components/LoadingSpinner.jsx";
 
-const LoadingSpinner = () => {
-    return (
-        <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50">
-            <motion.div
-                animate={{
-                    rotate: 360,
-                    scale: [1, 1.1, 1]
-                }}
-                transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-                className="relative w-16 h-16 mx-auto mb-4"
-            >
-                <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-pink-500 border-r-pink-500"></div>
-                <div className="absolute inset-0 rounded-full border-4 border-transparent border-b-purple-500 border-l-purple-500 transform rotate-45"></div>
-            </motion.div>
-        </div>
-    );
-};
+
 
 const AboutMe = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -72,29 +53,32 @@ const AboutMe = () => {
     ];
 
     useEffect(() => {
-        // Simulate loading data
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1500); // Adjust time as needed
+        }, 3500); // Matches the duration of the door animation
 
         return () => clearTimeout(timer);
     }, []);
 
-    if (isLoading) {
-        return <LoadingSpinner />;
-    }
-
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="about w-full min-h-screen overflow-hidden"
-        >
-            <HeroSection />
-            <ExtracurricularSection activities={activities} />
-            <SkillsSection />
-        </motion.div>
+        <>
+            <AnimatePresence>
+                {isLoading && <DoorLoadingAnimation />}
+            </AnimatePresence>
+
+            {!isLoading && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="about w-full min-h-screen overflow-hidden"
+                >
+                    <HeroSection />
+                    <ExtracurricularSection activities={activities} />
+                    <SkillsSection />
+                </motion.div>
+            )}
+        </>
     );
 };
 

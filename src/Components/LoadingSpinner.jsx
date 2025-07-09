@@ -1,155 +1,123 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import SkillsSection from "../Pages/AboutMe/SkillsSection.jsx";
-import ExtracurricularSection from "../Pages/AboutMe/ExtracurricularSection.jsx";
-import HeroSection from "../Pages/AboutMe/HeroSection.jsx";
 
 const DoorLoadingAnimation = () => {
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 z-50 overflow-hidden">
-            {/* Left Door */}
-            <motion.div
-                initial={{ x: 0 }}
-                animate={{ x: '-100vw' }}
-                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute left-0 w-1/2 h-full bg-gradient-to-r from-pink-700 to-purple-900 flex items-center justify-end pr-8"
-                style={{
-                    transformOrigin: 'left center',
-                    boxShadow: '10px 0 15px -5px rgba(0,0,0,0.3)'
-                }}
-            >
+        <div className="fixed inset-0 flex items-center justify-center bg-pink-400 z-[9999] overflow-hidden">
+            <div className="relative w-full h-full">
+                {/* Left Door - White with pink accent */}
+                <motion.div
+                    initial={{ x: 0 }}
+                    animate={{ x: '-100%' }}
+                    transition={{
+                        duration: 4,
+                        ease: [0.65, 0, 0.35, 1], // Smooth ease-in-out
+                        delay: 0.2
+                    }}
+                    className="absolute top-0 left-0 w-1/2 h-full bg-white border-r border-pink-300"
+                    style={{
+                        transformOrigin: 'left center',
+                        boxShadow: '8px 0 15px -5px rgba(0,0,0,0.1)'
+                    }}
+                >
+                    <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            delay: 0.6,
+                            duration: 0.6,
+                            ease: "easeOut"
+                        }}
+                        className="absolute right-10 top-1/2 transform -translate-y-1/2 text-right"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-gray-800">Welcome</h2>
+                        <p className="text-xl md:text-2xl text-pink-500">to my world</p>
+                    </motion.div>
+                </motion.div>
+
+                {/* Right Door - White with pink accent */}
+                <motion.div
+                    initial={{ x: 0 }}
+                    animate={{ x: '100%' }}
+                    transition={{
+                        duration: 4,
+                        ease: [0.65, 0, 0.35, 1], // Matches left door timing
+                        delay: 0.2
+                    }}
+                    className="absolute top-0 right-0 w-1/2 h-full bg-white border-l border-pink-300"
+                    style={{
+                        transformOrigin: 'right center',
+                        boxShadow: '-8px 0 15px -5px rgba(0,0,0,0.1)'
+                    }}
+                >
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            delay: 0.8,
+                            duration: 0.6,
+                            ease: "easeOut"
+                        }}
+                        className="absolute left-10 top-1/2 transform -translate-y-1/2 text-left"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-gray-800">Explore</h2>
+                        <p className="text-xl md:text-2xl text-pink-500">who I am</p>
+                    </motion.div>
+                </motion.div>
+
+                {/* Center Content - Appears after doors open */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 1 }}
-                    className="text-white text-right pr-4"
+                    transition={{
+                        delay: 1.6,
+                        duration: 0.8,
+                        ease: "easeOut"
+                    }}
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-2">Welcome</h2>
-                    <p className="text-xl md:text-2xl">to my world</p>
+                    <motion.div
+                        initial={{ scale: 0.9, y: 20 }}
+                        animate={{ scale: 1, y: 0 }}
+                        transition={{
+                            delay: 1.8,
+                            duration: 0.6,
+                            ease: "backOut"
+                        }}
+                        className="text-center"
+                    >
+                        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+                            Discovering My Journey
+                        </h1>
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: '100%' }}
+                            transition={{
+                                delay: 2.0,
+                                duration: 0.8,
+                                ease: "easeInOut"
+                            }}
+                            className="h-1 bg-pink-400 mx-auto mb-4"
+                        />
+                        <p className="text-xl text-gray-500">
+                            Crafting digital experiences
+                        </p>
+                    </motion.div>
                 </motion.div>
-            </motion.div>
 
-            {/* Right Door */}
-            <motion.div
-                initial={{ x: 0 }}
-                animate={{ x: '100vw' }}
-                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute right-0 w-1/2 h-full bg-gradient-to-l from-pink-700 to-purple-900 flex items-center justify-start pl-8"
-                style={{
-                    transformOrigin: 'right center',
-                    boxShadow: '-10px 0 15px -5px rgba(0,0,0,0.3)'
-                }}
-            >
+                {/* Fade out overlay */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8, duration: 1 }}
-                    className="text-white text-left pl-4"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-2">Explore</h2>
-                    <p className="text-xl md:text-2xl">who I am</p>
-                </motion.div>
-            </motion.div>
-
-            {/* Center content that appears after doors open */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            >
-                <div className="text-center">
-                    <motion.h1
-                        initial={{ y: 20 }}
-                        animate={{ y: 0 }}
-                        transition={{ delay: 1.8 }}
-                        className="text-3xl md:text-4xl font-bold text-white mb-2"
-                    >
-                        Discovering My Journey
-                    </motion.h1>
-                    <motion.p
-                        initial={{ y: 20 }}
-                        animate={{ y: 0 }}
-                        transition={{ delay: 2 }}
-                        className="text-xl text-gray-300"
-                    >
-                        Loading my experiences and skills...
-                    </motion.p>
-                </div>
-            </motion.div>
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        delay: 2.8,
+                        duration: 0.6
+                    }}
+                    className="absolute inset-0 bg-white"
+                />
+            </div>
         </div>
     );
 };
 
-const AboutMe = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const activities = [
-        {
-            title: "2025",
-            description: "Webmaster of IEEE WIE UWU"
-        },
-        {
-            title: "2024",
-            description: "Co-Founder at Soft Detroits"
-        },
-        {
-            title: "2022",
-            description: "Active member of UWU Dancing Circle"
-        },
-        {
-            title: "2022",
-            description: "Active member of UWU Chess Team"
-        },
-        {
-            title: "2022",
-            description: "Active member of IEEE UWU Student Branch"
-        },
-        {
-            title: "2021",
-            description: "Assistant Manager at Kandy Backpackers Hostel"
-        },
-        {
-            title: "2021",
-            description: "Call Center Agent at BPO Connect"
-        },
-        {
-            title: "2020",
-            description: "Trainee at Bank Of Ceylon"
-        },
-        {
-            title: "2019",
-            description: "Completed GCE A/L"
-        },
-        {
-            title: "2016",
-            description: "Completed GCE O/L"
-        }
-    ];
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    if (isLoading) {
-        return <DoorLoadingAnimation />;
-    }
-
-    return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="about w-full min-h-screen overflow-hidden"
-        >
-            <HeroSection />
-            <ExtracurricularSection activities={activities} />
-            <SkillsSection />
-        </motion.div>
-    );
-};
-
-export default AboutMe;
+export default DoorLoadingAnimation;
