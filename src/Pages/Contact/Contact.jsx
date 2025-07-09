@@ -25,10 +25,7 @@ const itemVariants = {
             stiffness: 100,
             damping: 10
         }
-    }
-};
-
-const cardVariants = {
+    },
     hover: {
         y: -5,
         boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
@@ -186,7 +183,6 @@ const Contact = () => {
                             <motion.div
                                 variants={itemVariants}
                                 whileHover="hover"
-                                variants={cardVariants}
                                 className="overflow-hidden bg-white border rounded-lg sm:rounded-xl"
                             >
                                 <div className="p-4 sm:p-6">
@@ -206,7 +202,6 @@ const Contact = () => {
                             <motion.div
                                 variants={itemVariants}
                                 whileHover="hover"
-                                variants={cardVariants}
                                 className="overflow-hidden bg-white border rounded-lg sm:rounded-xl"
                             >
                                 <div className="p-4 sm:p-6">
@@ -228,7 +223,6 @@ const Contact = () => {
                             <motion.div
                                 variants={itemVariants}
                                 whileHover="hover"
-                                variants={cardVariants}
                                 className="overflow-hidden bg-white border rounded-lg sm:rounded-xl h-full"
                             >
                                 <div className="p-4 sm:p-6 h-full flex flex-col">

@@ -1,6 +1,3 @@
-// AboutMe.jsx
-import image2 from "../../assets/ishini1.png";
-import bg2 from "../../assets/bg2.jpg";
 import SkillsSection from "./SkillsSection.jsx";
 import ExtracurricularSection from "./ExtracurricularSection.jsx";
 import HeroSection from "./HeroSection.jsx";
