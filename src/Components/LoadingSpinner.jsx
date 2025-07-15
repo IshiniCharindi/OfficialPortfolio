@@ -4,20 +4,20 @@ const DoorLoadingAnimation = () => {
     return (
         <div className="fixed inset-0 flex items-center justify-center z-[9999] overflow-hidden ">
             <div className="relative w-full h-full">
-                {/* Left Door with enhanced gradient */}
+                {/* Left Door - Pink gradient */}
                 <motion.div
                     initial={{ x: 0 }}
                     animate={{ x: '-100%' }}
                     transition={{
-                        duration: 5, // Reduced from 5s for better UX
-                        ease: [0.76, 0, 0.24, 1], // More precise easing
+                        duration: 5,
+                        ease: [0.76, 0, 0.24, 1],
                         delay: 0.2
                     }}
                     className="absolute top-0 left-0 w-1/2 h-full"
                     style={{
                         transformOrigin: 'left center',
                         boxShadow: '16px 0 30px -10px rgba(0,0,0,0.15)',
-                        background: 'linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(152,70,242,0.7) 70%, rgba(255,255,255,0.3) 100%)'
+                        background: 'linear-gradient(90deg, rgba(236,72,153,1) 0%, rgba(244,114,182,0.7) 70%, rgba(255,255,255,0.3) 100%)'
                     }}
                 >
                     <motion.div
@@ -30,16 +30,16 @@ const DoorLoadingAnimation = () => {
                         }}
                         className="absolute right-10 top-1/2 transform -translate-y-1/2 text-right"
                     >
-                        <h2 className="text-5xl md:text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-black to-black">
+                        <h2 className="text-5xl text-black md:text-6xl font-bold mb-3  bg-clip-text bg-gradient-to-r from-white to-gray-100">
                             Welcome
                         </h2>
-                        <p className="text-2xl md:text-3xl font-medium text-black-50/90">
+                        <p className="text-2xl text-black md:text-3xl font-medium ">
                             to my world
                         </p>
                     </motion.div>
                 </motion.div>
 
-                {/* Right Door with enhanced gradient */}
+                {/* Right Door - Gray gradient */}
                 <motion.div
                     initial={{ x: 0 }}
                     animate={{ x: '100%' }}
@@ -52,7 +52,7 @@ const DoorLoadingAnimation = () => {
                     style={{
                         transformOrigin: 'right center',
                         boxShadow: '-16px 0 30px -10px rgba(0,0,0,0.15)',
-                        background: 'linear-gradient(270deg, rgba(63,94,251,1) 0%, rgba(152,70,242,0.7) 70%, rgba(255,255,255,0.3) 100%)'
+                        background: 'linear-gradient(270deg, rgba(75,85,99,1) 0%, rgba(156,163,175,0.7) 70%, rgba(255,255,255,0.3) 100%)'
                     }}
                 >
                     <motion.div
@@ -65,16 +65,16 @@ const DoorLoadingAnimation = () => {
                         }}
                         className="absolute left-10 top-1/2 transform -translate-y-1/2 text-left"
                     >
-                        <h2 className="text-5xl md:text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-black to-black">
+                        <h2 className="text-5xl text-black md:text-6xl font-bold mb-3  bg-clip-text bg-gradient-to-r from-white to-gray-200">
                             Explore
                         </h2>
-                        <p className="text-2xl md:text-3xl font-medium text-black">
+                        <p className="text-2xl text-black md:text-3xl font-medium">
                             who I am
                         </p>
                     </motion.div>
                 </motion.div>
 
-                {/* Subtle floating particles */}
+                {/* Subtle floating particles - White */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     {[...Array(20)].map((_, i) => (
                         <motion.div
