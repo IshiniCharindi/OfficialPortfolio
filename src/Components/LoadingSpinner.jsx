@@ -17,7 +17,7 @@ const DoorLoadingAnimation = () => {
                     style={{
                         transformOrigin: 'left center',
                         boxShadow: '16px 0 30px -10px rgba(0,0,0,0.15)',
-                        background: 'linear-gradient(90deg, rgba(219,39,119,1) 0%, rgba(219,39,119,0.7) 70%, rgba(255,255,255,0.3) 100%)'
+                        background: 'linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(152,70,242,0.7) 70%, rgba(255,255,255,0.3) 100%)'
                     }}
                 >
                     <motion.div
@@ -52,7 +52,7 @@ const DoorLoadingAnimation = () => {
                     style={{
                         transformOrigin: 'right center',
                         boxShadow: '-16px 0 30px -10px rgba(0,0,0,0.15)',
-                        background: 'linear-gradient(270deg, rgba(219,39,119,1) 0%, rgba(219,39,119,0.7) 70%, rgba(255,255,255,0.3) 100%)'
+                        background: 'linear-gradient(270deg, rgba(63,94,251,1) 0%, rgba(152,70,242,0.7) 70%, rgba(255,255,255,0.3) 100%)'
                     }}
                 >
                     <motion.div
