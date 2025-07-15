@@ -55,16 +55,16 @@ const AboutMe = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 3500); // Matches the duration of the door animation
+        }, ); // Matches the duration of the door animation
 
         return () => clearTimeout(timer);
     }, []);
 
     return (
         <>
-            <AnimatePresence>
-                {isLoading && <DoorLoadingAnimation />}
-            </AnimatePresence>
+            {/*<AnimatePresence>*/}
+            {/*    {isLoading && <DoorLoadingAnimation />}*/}
+            {/*</AnimatePresence>*/}
 
             {!isLoading && (
                 <motion.div

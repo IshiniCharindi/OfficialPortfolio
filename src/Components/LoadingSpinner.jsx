@@ -2,8 +2,20 @@ import { motion } from 'framer-motion';
 
 const DoorLoadingAnimation = () => {
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-[9999] overflow-hidden ">
-            <div className="relative w-full h-full">
+        <div className="fixed inset-0 flex items-center justify-center z-[9999] overflow-hidden">
+            {/* White overlay that fades out */}
+            <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 0 }}
+                transition={{
+                    duration: 4.8, // Matches door animation duration (5s - 0.2s delay)
+                    delay: 2,    // Matches door animation delay
+                    ease: "linear" // Smooth linear fade
+                }}
+                className="absolute inset-0 bg-white z-0"
+            />
+
+            <div className="relative w-full h-full z-10">
                 {/* Left Door - Pink gradient */}
                 <motion.div
                     initial={{ x: 0 }}
