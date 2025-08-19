@@ -8,9 +8,9 @@ const DoorLoadingAnimation = () => {
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{
-          duration: 4.8, // Matches door animation duration (5s - 0.2s delay)
-          delay: 2, // Matches door animation delay
-          ease: "linear", // Smooth linear fade
+          duration: 4.8,
+          delay: 2,
+          ease: "linear",
         }}
         className="absolute inset-0 bg-white z-0"
       />

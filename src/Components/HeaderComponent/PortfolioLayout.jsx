@@ -22,7 +22,7 @@ const PortfolioLayout = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3500); // Matches the duration of the door animation
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
