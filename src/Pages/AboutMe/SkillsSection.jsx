@@ -47,10 +47,12 @@ const SkillsSection = () => {
         "Reliable RDBMS for managing structured data with SQL queries.",
     },
     {
-      icon: "https://img.icons8.com/fluency/48/angularjs.png",
-      title: "Angular",
-      description: "TypeScript framework for dynamic single-page applications.",
+      icon: "https://img.icons8.com/color/48/nextjs.png",
+      title: "Next.js",
+      description:
+          "React framework for building fast, SEO-friendly, and scalable web applications with server-side rendering.",
     },
+
   ];
 
   // Animation variants
