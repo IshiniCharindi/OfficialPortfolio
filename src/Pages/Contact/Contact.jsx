@@ -306,7 +306,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.02 }}
                   className="text-xl font-semibold text-center text-gray-900 sm:text-2xl md:text-3xl"
                 >
-                  Send me a message
+                  Get in Touch with me
                 </motion.h3>
 
                 <form onSubmit={handleSubmit} className="mt-8 sm:mt-12">
@@ -394,7 +394,7 @@ const Contact = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         type="submit"
-                        className="inline-flex items-center justify-center w-full px-4 py-3 mt-1 text-sm font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-md focus:outline-none hover:bg-pink-700 focus:bg-blue-700 sm:py-3.5 sm:text-base sm:mt-2"
+                        className="inline-flex items-center justify-center w-full px-4 py-3 mt-1 text-sm font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-md focus:outline-none hover:bg-pink-700 focus:bg-pink-900 sm:py-3.5 sm:text-base sm:mt-2"
                       >
                         Send Inquiry
                       </motion.button>
