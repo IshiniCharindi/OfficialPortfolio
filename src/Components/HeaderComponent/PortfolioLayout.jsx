@@ -126,7 +126,7 @@ const PortfolioLayout = () => {
                 <h1 className="text-xl font-bold text-gray-800">
                   Ishini Dewamiththa
                 </h1>
-                <p className="text-gray-600 mb-6">Web Developer</p>
+                <p className="text-gray-600 mb-6">Full Stack Developer</p>
                 <div className="w-full border-t border-gray-200 mb-6"></div>
               </div>
 

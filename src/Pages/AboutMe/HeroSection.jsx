@@ -50,7 +50,7 @@ const HeroSection = () => {
               transition={{ delay: 0.6 }}
               className="text-xl sm:text-2xl md:text-3xl text-pink-700 font-semibold mb-6 sm:mb-8"
             >
-              Web Developer & Designer
+              Full Stack Developer
             </motion.h3>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
