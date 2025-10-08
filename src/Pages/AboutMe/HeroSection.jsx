@@ -59,7 +59,7 @@ const HeroSection = () => {
               className="max-w-lg mx-auto md:mx-0 text-base sm:text-lg leading-relaxed text-gray-500 mb-8 sm:mb-10"
             >
               A dedicated professional from Sri Lanka committed to delivering
-              exceptional web solutions tailored to your specific needs with
+              exceptional software solutions tailored to your specific needs with
               creativity and technical excellence.
             </motion.p>
 
