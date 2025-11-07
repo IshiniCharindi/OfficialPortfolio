@@ -9,31 +9,31 @@ const SkillsSection = () => {
       icon: "https://img.icons8.com/plasticine/100/react.png",
       title: "React",
       description:
-        "Building dynamic, reusable components and high-performance user interfaces.",
+          "Building dynamic, reusable components and high-performance user interfaces.",
     },
     {
       icon: "https://img.icons8.com/fluency/48/node-js.png",
       title: "Node.js",
       description:
-        "JavaScript runtime for building fast, scalable server-side applications.",
+          "JavaScript runtime for building fast, scalable server-side applications.",
     },
     {
       icon: "https://img.icons8.com/color/48/python--v1.png",
       title: "Python & Django",
       description:
-        "Versatile language with powerful framework for secure web applications.",
+          "Versatile language with powerful framework for secure web applications.",
     },
     {
       icon: "https://img.icons8.com/color/48/spring-logo.png",
       title: "Spring Boot",
       description:
-        "Java framework for robust, production-ready backend applications.",
+          "Java framework for robust, production-ready backend applications.",
     },
     {
       icon: "https://img.icons8.com/dusk/64/php-logo.png",
       title: "PHP",
       description:
-        "Scripting language for dynamic web applications and server-side scripting.",
+          "Scripting language for dynamic web applications and server-side scripting.",
     },
     {
       icon: "https://img.icons8.com/color/48/mongo-db.png",
@@ -44,7 +44,13 @@ const SkillsSection = () => {
       icon: "https://img.icons8.com/color/48/mysql-logo.png",
       title: "MySQL",
       description:
-        "Reliable RDBMS for managing structured data with SQL queries.",
+          "Reliable RDBMS for managing structured data with SQL queries.",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/postgreesql.png",
+      title: "PostgreSQL",
+      description:
+          "Advanced open-source relational database with strong data integrity and SQL compliance.",
     },
     {
       icon: "https://img.icons8.com/color/48/nextjs.png",
@@ -52,8 +58,27 @@ const SkillsSection = () => {
       description:
           "React framework for building fast, SEO-friendly, and scalable web applications with server-side rendering.",
     },
+    {
+      icon: "https://img.icons8.com/color/48/nestjs.png",
+      title: "NestJS",
+      description:
+          "Progressive Node.js framework for building efficient and scalable backend applications.",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/react-native.png",
+      title: "React Native",
+      description:
+          "Framework for building cross-platform mobile apps using JavaScript and React.",
+    },
 
+    {
+      icon: "https://img.icons8.com/color/48/flutter.png",
+      title: "Flutter",
+      description:
+          "UI toolkit by Google for building beautiful, natively compiled mobile, web, and desktop applications from a single codebase.",
+    },
   ];
+
 
   // Animation variants
   const container = {
