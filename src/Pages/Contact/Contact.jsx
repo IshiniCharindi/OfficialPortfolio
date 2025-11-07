@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import Toast from "../../Components/Toast.jsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Footer from "../../Components/Footer.jsx";
 
 // Animation variants
 const containerVariants = {
@@ -406,6 +407,7 @@ const Contact = () => {
           </motion.div>
         </div>
       </motion.section>
+      <Footer/>
     </div>
   );
 };

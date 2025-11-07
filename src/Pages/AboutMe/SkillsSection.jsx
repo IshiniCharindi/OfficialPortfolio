@@ -171,36 +171,6 @@ const SkillsSection = () => {
           ))}
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={buttonVariants}
-          className="text-center mt-16"
-        >
-          <motion.button
-            onClick={() => navigate("/services")}
-            className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-full shadow-sm text-white bg-pink-600 hover:bg-pink-700 transition duration-300"
-            whileHover="hover"
-            whileTap="tap"
-          >
-            View All Services
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="ml-2 -mr-1 w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

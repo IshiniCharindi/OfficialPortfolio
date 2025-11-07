@@ -13,6 +13,7 @@ import gc3 from "../../assets/projects/G capital 3.png";
 import sd1 from "../../assets/projects/softdetroits 1.png";
 import sd2 from "../../assets/projects/softdetroits 2.png";
 import sd3 from "../../assets/projects/softdetroits 3.png";
+import Footer from "../../Components/Footer.jsx";
 
 // Animation variants
 const containerVariants = {
@@ -665,6 +666,7 @@ const Portfolio = () => {
           )}
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

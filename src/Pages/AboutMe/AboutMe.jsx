@@ -4,6 +4,7 @@ import SkillsSection from "./SkillsSection.jsx";
 import ExtracurricularSection from "./ExtracurricularSection.jsx";
 import HeroSection from "./HeroSection.jsx";
 import DoorLoadingAnimation from "../../Components/LoadingSpinner.jsx";
+import Footer from "../../Components/Footer.jsx";
 
 const AboutMe = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -70,6 +71,7 @@ const AboutMe = () => {
           <HeroSection />
           <ExtracurricularSection activities={activities} />
           <SkillsSection />
+          <Footer/>
         </motion.div>
       )}
     </>

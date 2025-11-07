@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import service1 from "../../assets/service1.jpg";
+import Footer from "../../Components/Footer.jsx";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -430,6 +431,7 @@ const Services = () => {
           </div>
         </motion.section>
       </div>
+      <Footer/>
     </div>
   );
 };
