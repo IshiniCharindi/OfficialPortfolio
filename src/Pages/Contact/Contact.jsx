@@ -34,6 +34,18 @@ const itemVariants = {
   },
 };
 
+const getBackendUrl = async () => {
+  try {
+    const response = await fetch(
+        "https://protfolio-backend-xkjg.onrender.com/api/health"
+    );
+    if (response.ok) return "https://protfolio-backend-xkjg.onrender.com";
+  } catch (err) {
+    console.warn("Live backend not reachable, falling back to localhost");
+  }
+  return "http://localhost:5000";
+};
+
 const Contact = () => {
   const location = useLocation();
   const { state } = location;
@@ -52,8 +64,10 @@ const Contact = () => {
       packagePrice: state?.packagePrice || "",
     };
 
+    const backendUrl = await getBackendUrl();
+
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${backendUrl}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
