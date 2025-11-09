@@ -54,7 +54,7 @@ const Contact = () => {
 
     try {
       console.log(e.target[0].value)
-      const response = await fetch("https://protfolio-backend-xkjg.onrender.com/api/contact", {
+      const response = await fetch("https://protfolio-backend-jxb1.vercel.app/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
