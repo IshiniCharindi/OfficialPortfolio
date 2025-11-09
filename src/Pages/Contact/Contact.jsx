@@ -34,18 +34,6 @@ const itemVariants = {
   },
 };
 
-const getBackendUrl = async () => {
-  try {
-    const response = await fetch(
-        "https://protfolio-backend-xkjg.onrender.com/api/health"
-    );
-    if (response.ok) return "https://protfolio-backend-xkjg.onrender.com";
-  } catch (err) {
-    console.warn("Live backend not reachable, falling back to localhost");
-  }
-  return "http://localhost:5000";
-};
-
 const Contact = () => {
   const location = useLocation();
   const { state } = location;
@@ -64,15 +52,15 @@ const Contact = () => {
       packagePrice: state?.packagePrice || "",
     };
 
-    const backendUrl = await getBackendUrl();
-
     try {
-      const response = await fetch(`${backendUrl}/api/contact`, {
+      console.log(e.target[0].value)
+      const response = await fetch("https://protfolio-backend-xkjg.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
+      console.log(response)
       const data = await response.json();
 
       setToast({
@@ -87,6 +75,7 @@ const Contact = () => {
         setToast({ show: false, message: "", type: "" });
       }, 5000);
     } catch (err) {
+      console.log(err)
       setToast({
         show: true,
         message: "Something went wrong. Please try again.",
