@@ -1,123 +1,129 @@
 import { motion } from "framer-motion";
 
-const DoorLoadingAnimation = () => {
-  return (
-    <div className="fixed inset-0 flex items-center justify-center z-[9999] overflow-hidden">
-      {/* White overlay that fades out */}
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{
-          duration: 4.8,
-          delay: 2,
-          ease: "linear",
-        }}
-        className="absolute inset-0 bg-white z-0"
-      />
+const LoadingSpinner = () => {
+    return (
+        <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+            <div className="relative flex flex-col items-center justify-center space-y-8">
+                {/* Animated Logo/Initials */}
+                <div className="relative">
+                    {/* Outer rotating ring */}
+                    <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{
+                            duration: 1.2,
+                            ease: "easeOut",
+                        }}
+                        className="absolute inset-0 border-4 border-transparent rounded-full"
+                        style={{
+                            background: "conic-gradient(from 0deg, #ec4899, #8b5cf6, #ec4899)",
+                        }}
+                    />
 
-      <div className="relative w-full h-full z-10">
-        {/* Left Door - Pink gradient */}
-        <motion.div
-          initial={{ x: 0 }}
-          animate={{ x: "-100%" }}
-          transition={{
-            duration: 5,
-            ease: [0.76, 0, 0.24, 1],
-            delay: 0.2,
-          }}
-          className="absolute top-0 left-0 w-1/2 h-full"
-          style={{
-            transformOrigin: "left center",
-            boxShadow: "16px 0 30px -10px rgba(0,0,0,0.15)",
-            background:
-              "linear-gradient(90deg, rgba(236,72,153,1) 0%, rgba(244,114,182,0.7) 70%, rgba(255,255,255,0.3) 100%)",
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: 0.4,
-              duration: 1,
-              ease: [0.33, 1, 0.68, 1],
-            }}
-            className="absolute right-10 top-1/2 transform -translate-y-1/2 text-right"
-          >
-            <h2 className="text-5xl text-black md:text-6xl font-bold mb-3  bg-clip-text bg-gradient-to-r from-white to-gray-100">
-              Welcome
-            </h2>
-            <p className="text-2xl text-black md:text-3xl font-medium ">
-              to my world
-            </p>
-          </motion.div>
-        </motion.div>
+                    {/* Middle ring */}
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                            duration: 1,
+                            delay: 0.3,
+                            ease: "easeOut",
+                        }}
+                        className="absolute inset-2 border-3 border-white/20 rounded-full"
+                    />
 
-        {/* Right Door - Gray gradient */}
-        <motion.div
-          initial={{ x: 0 }}
-          animate={{ x: "100%" }}
-          transition={{
-            duration: 5,
-            ease: [0.76, 0, 0.24, 1],
-            delay: 0.2,
-          }}
-          className="absolute top-0 right-0 w-1/2 h-full"
-          style={{
-            transformOrigin: "right center",
-            boxShadow: "-16px 0 30px -10px rgba(0,0,0,0.15)",
-            background:
-              "linear-gradient(270deg, rgba(75,85,99,1) 0%, rgba(156,163,175,0.7) 70%, rgba(255,255,255,0.3) 100%)",
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: 0.6,
-              duration: 1,
-              ease: [0.33, 1, 0.68, 1],
-            }}
-            className="absolute left-10 top-1/2 transform -translate-y-1/2 text-left"
-          >
-            <h2 className="text-5xl text-black md:text-6xl font-bold mb-3  bg-clip-text bg-gradient-to-r from-white to-gray-200">
-              Explore
-            </h2>
-            <p className="text-2xl text-black md:text-3xl font-medium">
-              who I am
-            </p>
-          </motion.div>
-        </motion.div>
+                    {/* Center circle with initials */}
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.6,
+                            ease: "easeOut",
+                        }}
+                        className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl"
+                    >
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1, duration: 0.5 }}
+                            className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                        >
+                            ID
+                        </motion.span>
+                    </motion.div>
+                </div>
 
-        {/* Subtle floating particles - White */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{
-                opacity: [0, 0.6, 0],
-                y: [0, 100],
-                x: Math.random() * 100 - 50,
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                delay: Math.random() * 2,
-                repeat: Infinity,
-              }}
-              className="absolute rounded-full"
-              style={{
-                width: `${Math.random() * 6 + 2}px`,
-                height: `${Math.random() * 6 + 2}px`,
-                background: `rgba(255,255,255,${Math.random() * 0.7 + 0.3})`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
+                {/* Name Text */}
+                <div className="text-center space-y-2">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
+                        className="text-4xl md:text-5xl font-bold text-white tracking-wide"
+                    >
+                        Ishini Dewamiththa
+                    </motion.h1>
+
+                    {/* Animated loading bar */}
+                    <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ delay: 1.2, duration: 2, ease: "easeInOut" }}
+                        className="h-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mt-4"
+                    />
+                </div>
+
+                {/* Loading dots */}
+                <motion.div className="flex space-x-2">
+                    {[0, 1, 2].map((index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                                delay: 1.4 + index * 0.2,
+                                duration: 0.5,
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                            }}
+                            className="w-2 h-2 bg-white rounded-full"
+                        />
+                    ))}
+                </motion.div>
+
+                {/* Floating particles */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {[...Array(15)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{
+                                opacity: [0, 0.8, 0],
+                                scale: [0, 1, 0],
+                                x: Math.random() * 200 - 100,
+                                y: Math.random() * 200 - 100,
+                            }}
+                            transition={{
+                                duration: 3 + Math.random() * 2,
+                                delay: Math.random() * 2,
+                                repeat: Infinity,
+                                repeatDelay: Math.random() * 3,
+                            }}
+                            className="absolute rounded-full"
+                            style={{
+                                width: `${Math.random() * 4 + 2}px`,
+                                height: `${Math.random() * 4 + 2}px`,
+                                background: `rgba(255,255,255,${Math.random() * 0.6 + 0.2})`,
+                                top: "50%",
+                                left: "50%",
+                            }}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
-export default DoorLoadingAnimation;
+export default LoadingSpinner;
