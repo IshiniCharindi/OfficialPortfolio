@@ -113,7 +113,7 @@ const Services = () => {
             >
               <motion.button
                 onClick={() => navigate("/contact")}
-                className="flex items-center px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl hover:bg-pink-700"
+                className="flex items-center px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-pink-700 border border-transparent rounded-3xl hover:bg-pink-800"
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
@@ -228,7 +228,7 @@ const Services = () => {
                     onClick={() =>
                       handlePackageSelect("Basic", 80, basicFeatures)
                     }
-                    className="w-full mt-6 sm:mt-8 px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-pink-700 rounded-3xl hover:bg-blue-700 focus:bg-blue-700"
+                    className="w-full mt-6 sm:mt-8 px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-pink-700 rounded-3xl hover:opacity-80 focus:opacity-80"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
@@ -295,7 +295,7 @@ const Services = () => {
                     onClick={() =>
                       handlePackageSelect("Standard", 200, standardFeatures)
                     }
-                    className="w-full mt-6 sm:mt-8 px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 rounded-3xl bg-gradient-to-r from-fuchsia-600 to-pink-700 hover:opacity-80 focus:opacity-80"
+                    className="w-full mt-6 sm:mt-8 px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 rounded-3xl bg-pink-700 hover:opacity-80 focus:opacity-80"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
@@ -362,7 +362,7 @@ const Services = () => {
                     onClick={() =>
                       handlePackageSelect("Premium", 350, premiumFeatures)
                     }
-                    className="w-full mt-6 sm:mt-8 px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-pink-700 rounded-3xl hover:bg-blue-700 focus:bg-blue-700"
+                    className="w-full mt-6 sm:mt-8 px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-pink-700 rounded-3xl hover:opacity-80 focus:opacity-80"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
@@ -410,7 +410,7 @@ const Services = () => {
             >
               <motion.button
                 onClick={() => navigate("/contact")}
-                className="flex items-center px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-3xl hover:bg-pink-700"
+                className="flex items-center px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-200 bg-pink-700 border border-transparent rounded-3xl hover:bg-pink-800"
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
