@@ -52,7 +52,7 @@ const SimpleFooter = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.1, y: -2 }}
-                                className="text-pink-500 hover:text-pink-600 transition-colors duration-300"
+                                className="text-gray-700 hover:text-pink-600 transition-colors duration-300"
                                 aria-label={social.name}
                             >
                                 {social.icon}
