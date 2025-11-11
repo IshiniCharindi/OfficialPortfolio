@@ -291,7 +291,7 @@ const Contact = () => {
                   </motion.div>
                   <div className="mt-4 flex-1 overflow-hidden">
                     <p className="text-base font-medium text-gray-900 sm:text-lg break-words whitespace-pre-line overflow-ellipsis overflow-hidden">
-                      10, Selligewaththa, Ampitiya, Kandy, Sri Lanka
+                      Kandy, Sri Lanka
                     </p>
                   </div>
                 </div>
@@ -398,7 +398,7 @@ const Contact = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         type="submit"
-                        className="inline-flex items-center justify-center w-full px-4 py-3 mt-1 text-sm font-semibold text-white transition-all duration-200 bg-[#36454F] border border-transparent rounded-md focus:outline-none hover:bg-pink-700 focus:bg-pink-900 sm:py-3.5 sm:text-base sm:mt-2"
+                        className="inline-flex items-center justify-center w-full px-4 py-3 mt-1 text-sm font-semibold text-white transition-all duration-200 bg-pink-700 border border-transparent rounded-md focus:outline-none hover:bg-pink-800 focus:bg-pink-800 sm:py-3.5 sm:text-base sm:mt-2"
                       >
                         Send Inquiry
                       </motion.button>
