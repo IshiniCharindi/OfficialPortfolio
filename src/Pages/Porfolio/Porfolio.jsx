@@ -12,6 +12,7 @@ import gc2 from "../../assets/projects/G capital 2.png";
 import gc3 from "../../assets/projects/G capital 3.png";
 import sd1 from "../../assets/projects/softdetroits 1.png";
 import sd2 from "../../assets/projects/softdetroits 2.png";
+import sd3 from "../../assets/projects/softdetroits 3.png";
 import u1 from "../../assets/projects/uvaXplore.jpg";
 import u2 from "../../assets/projects/uvaXplore2.jpg";
 import u3 from "../../assets/projects/uvaXplore4.jpg";
@@ -116,14 +117,14 @@ const Portfolio = () => {
       demoLink: "https://csi-dev.uwu.ac.lk/uva-explore/",
       githubLink: "https://github.com/Sajan-Hirusha/uvaExplore-Frontend",
     },
-    
+
   ];
 
   const [isGridView, setIsGridView] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentImageIndices, setCurrentImageIndices] = useState({});
   const [pausedSlides, setPausedSlides] = useState({});
-  const projectsPerPage = 3;
+  const projectsPerPage = 6;
 
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
