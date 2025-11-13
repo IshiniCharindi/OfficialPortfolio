@@ -12,7 +12,9 @@ import gc2 from "../../assets/projects/G capital 2.png";
 import gc3 from "../../assets/projects/G capital 3.png";
 import sd1 from "../../assets/projects/softdetroits 1.png";
 import sd2 from "../../assets/projects/softdetroits 2.png";
-import sd3 from "../../assets/projects/softdetroits 3.png";
+import u1 from "../../assets/projects/uvaXplore.jpg";
+import u2 from "../../assets/projects/uvaXplore2.jpg";
+import u3 from "../../assets/projects/uvaXplore4.jpg";
 import Footer from "../../Components/Footer.jsx";
 
 // Animation variants
@@ -103,6 +105,18 @@ const Portfolio = () => {
       demoLink: "https://softdetroits.com/",
       githubLink: "https://github.com/IshiniCharindi/SoftDetriots",
     },
+    {
+      id: 5,
+      title: "UvaXplore",
+      description:
+          "A centralized web platform designed to manage and retrieve undergraduate projects and research, integrating ML-powered\n" +
+          "semantic search, automated summarization, and digital signatures",
+      technologies: ["React", "Tailwind CSS", "Spring Boot", "Flask","PostgreSQL","pyHanko","HashiCorp Vault"],
+      images: [u1, u2, u3],
+      demoLink: "https://csi-dev.uwu.ac.lk/uva-explore/",
+      githubLink: "https://github.com/Sajan-Hirusha/uvaExplore-Frontend",
+    },
+    
   ];
 
   const [isGridView, setIsGridView] = useState(true);
