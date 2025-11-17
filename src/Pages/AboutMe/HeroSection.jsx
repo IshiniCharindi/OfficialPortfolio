@@ -134,7 +134,7 @@ const HeroSection = () => {
                 transition={{ delay: 1, type: "spring", stiffness: 200 }}
                 className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-pink-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-lg shadow-lg text-sm sm:text-base"
               >
-                <span className="font-bold">5+ Years</span> Experience
+                <span className="font-bold">1+ Years</span> Experience
               </motion.div>
             </div>
           </motion.div>
