@@ -117,6 +117,17 @@ const Portfolio = () => {
       demoLink: "https://csi-dev.uwu.ac.lk/uva-explore/",
       githubLink: "https://github.com/Sajan-Hirusha/uvaExplore-Frontend",
     },
+    {
+      id: 7,
+      title: "CODEDASH",
+      description:
+          "An interactive web platform designed to improve typing speed and accuracy for coders through language-specific coding exercises across three difficulty levels — Easy, Medium, and Hard. Includes real-time leaderboard and personalized dashboards to track progress, performance trends, and competitive rankings.",
+      technologies: ["React.js", "PHP", "TailwindCSS", "MySQL"],
+      images: [c1, c2, c3],
+      demoLink: "",
+      githubLink: "https://github.com/your-repo-link",
+    },
+
 
   ];
 
