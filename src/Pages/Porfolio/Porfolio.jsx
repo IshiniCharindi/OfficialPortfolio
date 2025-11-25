@@ -16,6 +16,10 @@ import sd3 from "../../assets/projects/softdetroits 3.png";
 import u1 from "../../assets/projects/uvaXplore.jpg";
 import u2 from "../../assets/projects/uvaXplore2.jpg";
 import u3 from "../../assets/projects/uvaXplore4.jpg";
+import code1 from "../../assets/projects/1.png";
+import code2 from "../../assets/projects/2.png";
+import code3 from "../../assets/projects/3.png";
+import code4 from "../../assets/projects/4.png";
 import Footer from "../../Components/Footer.jsx";
 
 // Animation variants
@@ -123,7 +127,7 @@ const Portfolio = () => {
       description:
           "An interactive web platform designed to improve typing speed and accuracy for coders through language-specific coding exercises across three difficulty levels — Easy, Medium, and Hard. Includes real-time leaderboard and personalized dashboards to track progress, performance trends, and competitive rankings.",
       technologies: ["React.js", "PHP", "TailwindCSS", "MySQL"],
-      images: [c1, c2, c3],
+      images: [code1, code2, code3, code4],
       demoLink: "",
       githubLink: "https://github.com/your-repo-link",
     },
