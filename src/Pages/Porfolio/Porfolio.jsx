@@ -129,7 +129,7 @@ const Portfolio = () => {
       technologies: ["React.js", "PHP", "TailwindCSS", "MySQL"],
       images: [code1, code2, code3, code4],
       demoLink: "",
-      githubLink: "https://github.com/your-repo-link",
+      githubLink: "https://github.com/IshiniCharindi/CodeDash",
     },
 
 
