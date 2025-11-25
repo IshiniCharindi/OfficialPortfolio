@@ -131,6 +131,17 @@ const Portfolio = () => {
       demoLink: "",
       githubLink: "https://github.com/IshiniCharindi/CodeDash",
     },
+    {
+      id: 8,
+      title: "COOPDigital",
+      description:
+          "A secure mobile banking application developed for cooperative banking customers at NanoSoft, enabling real-time account management, QR/direct transactions, and instant SMS notifications. Features a scalable backend with integrated payment gateways, ensuring high performance, data security, and a seamless user experience.",
+      technologies: ["React Native", "Nest.js", "Payment Gateway", "SMS Gateway"],
+      images: [coop1, coop2, coop3],
+      demoLink: "",
+      githubLink: "",
+    },
+
 
 
   ];
