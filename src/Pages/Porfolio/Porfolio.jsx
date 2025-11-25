@@ -472,7 +472,7 @@ const Portfolio = () => {
                         className="inline-flex items-center text-sm font-medium text-pink-600 hover:text-pink-800"
                         whileHover={{ x: 2 }}
                       >
-                        Live Demo
+                        Live Site
                         <svg
                           className="w-4 h-4 ml-1"
                           fill="none"
