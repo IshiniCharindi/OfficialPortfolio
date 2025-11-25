@@ -72,7 +72,7 @@ const AboutMe = () => {
           <HeroSection />
           <ExtracurricularSection activities={activities} />
           <SkillsSection />
-          <GallerySection/>
+          {/*<GallerySection/>*/}
           <Footer/>
         </motion.div>
       )}
