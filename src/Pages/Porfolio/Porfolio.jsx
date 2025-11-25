@@ -20,6 +20,10 @@ import code1 from "../../assets/projects/1.png";
 import code2 from "../../assets/projects/2.png";
 import code3 from "../../assets/projects/3.png";
 import code4 from "../../assets/projects/4.png";
+import coop1 from "../../assets/projects/coopdigita1.jpeg";
+import coop2 from "../../assets/projects/coopdigital2.jpeg";
+import coop3 from "../../assets/projects/coopdigital3.jpeg";
+import coop4 from "../../assets/projects/coopdigital4.jpeg";
 import Footer from "../../Components/Footer.jsx";
 
 // Animation variants
@@ -137,7 +141,7 @@ const Portfolio = () => {
       description:
           "A secure mobile banking application developed for cooperative banking customers at NanoSoft, enabling real-time account management, QR/direct transactions, and instant SMS notifications. Features a scalable backend with integrated payment gateways, ensuring high performance, data security, and a seamless user experience.",
       technologies: ["React Native", "Nest.js", "Payment Gateway", "SMS Gateway"],
-      images: [coop1, coop2, coop3],
+      images: [coop1, coop2, coop3,coop4],
       demoLink: "",
       githubLink: "",
     },
