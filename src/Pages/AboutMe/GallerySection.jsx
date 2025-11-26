@@ -23,70 +23,98 @@ const GallerySection = () => {
             src: img1,
             aspect: "vertical",
             size: "medium",
-            title: "Project Launch",
+            title: "IEEE Open Day 2025",
             description: "Successfully launched our flagship project with team collaboration"
         },
         {
             src: img2,
             aspect: "horizontal",
             size: "large",
-            title: "Team Building",
+            title: "NBQSA National Awards 2025",
             description: "Annual team retreat focused on innovation and collaboration"
         },
         {
             src: img3,
             aspect: "vertical",
             size: "small",
-            title: "Workshop",
+            title: "IEEE WIE AGM 2025",
             description: "Conducted technical workshop for 50+ participants"
         },
         {
             src: img4,
             aspect: "horizontal",
             size: "medium",
-            title: "Award Ceremony",
+            title: "Webmaster Appoinment",
             description: "Received excellence award for outstanding performance"
         },
         {
             src: img5,
             aspect: "vertical",
             size: "large",
-            title: "Volunteering",
+            title: "CST LAN Challenge 2025",
             description: "Community service initiative for local education"
         },
         {
             src: img6,
             aspect: "horizontal",
             size: "small",
-            title: "Conference",
+            title: "CST LAN Challenge 2024",
             description: "Speaking at international tech conference 2024"
         },
         {
-            src: img6,
+            src: img7,
             aspect: "vertical",
             size: "small",
-            title: "Mentorship",
+            title: "Shecoderess 2025",
             description: "Guiding junior developers in coding best practices"
         },
         {
-            src: img6,
+            src: img8,
             aspect: "horizontal",
             size: "medium",
-            title: "Innovation",
+            title: "Compering at CST LAN Challenge",
             description: "Brainstorming session for new product features"
         },
         {
-            src: img6,
+            src: img9,
             aspect: "vertical",
             size: "large",
-            title: "Achievement",
+            title: "Happy Moment",
             description: "Celebrating milestone achievement with the team"
         },
         {
-            src: img6,
+            src: img11,
             aspect: "horizontal",
             size: "small",
-            title: "Networking",
+            title: "Dean list Recognition",
+            description: "Industry networking event and knowledge sharing"
+        },
+        {
+            src: img10,
+            aspect: "vertical",
+            size: "small",
+            title: "Web Team at IEEE Open Day",
+            description: "Industry networking event and knowledge sharing"
+        },
+        {
+            src: img12,
+            aspect: "vertical",
+            size: "small",
+            title: "ENTREARC 2025",
+            description: "Industry networking event and knowledge sharing"
+        },
+        {
+            src: img13,
+            aspect: "horizontal",
+            size: "small",
+            title: "Me",
+            description: "Industry networking event and knowledge sharing"
+        },
+        {
+            src: img14,
+            aspect: "horizontal",
+            size: "small",
+            title: "Winning Prizes at Shecoderess",
             description: "Industry networking event and knowledge sharing"
         },
     ];
