@@ -22,7 +22,7 @@ const GallerySection = () => {
         {
             src: img1,
             aspect: "vertical",
-            size: "medium",
+            size: "small",
             title: "IEEE Open Day 2025",
             description: "Launching innovative projects and welcoming new members to our tech community"
         },
@@ -120,7 +120,7 @@ const GallerySection = () => {
     ];
 
     return (
-        <section className="py-16 bg-gray-100">
+        <section className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 {/* Heading */}
                 <motion.h2
