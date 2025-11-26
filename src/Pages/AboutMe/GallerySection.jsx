@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { X, ExternalLink } from "lucide-react";
+import { X } from "lucide-react";
 import img1 from "../../assets/gallery/g1.jpeg";
 import img2 from "../../assets/gallery/g2.jpeg";
 import img3 from "../../assets/gallery/g3.jpeg";
@@ -18,30 +18,25 @@ import img14 from "../../assets/gallery/g14.jpeg";
 
 const GallerySection = () => {
     const [selectedImage, setSelectedImage] = useState(null);
-    const [filter, setFilter] = useState("all");
-
     const images = [
         {
             src: img1,
             aspect: "vertical",
-            size: "large",
-            category: "events",
+            size: "medium",
             title: "IEEE Open Day 2025",
-            description: "Showcasing innovative projects and welcoming new members to our tech community"
+            description: "Launching innovative projects and welcoming new members to our tech community"
         },
         {
             src: img2,
             aspect: "horizontal",
             size: "large",
-            category: "achievements",
             title: "NBQSA National Awards 2025",
-            description: "Recognizing excellence in software innovation and technological advancement"
+            description: "Celebrating excellence in software innovation and national recognition"
         },
         {
             src: img3,
             aspect: "vertical",
-            size: "medium",
-            category: "leadership",
+            size: "small",
             title: "IEEE WIE AGM 2025",
             description: "Empowering women in engineering through leadership and collaboration"
         },
@@ -49,226 +44,149 @@ const GallerySection = () => {
             src: img4,
             aspect: "horizontal",
             size: "medium",
-            category: "achievements",
             title: "Webmaster Appointment",
-            description: "Taking on the responsibility of shaping digital presence and user experience"
+            description: "Taking charge of digital presence and web development initiatives"
         },
         {
             src: img5,
             aspect: "vertical",
             size: "large",
-            category: "events",
             title: "CST LAN Challenge 2025",
-            description: "Competitive coding and networking in Sri Lanka's premier tech competition"
+            description: "Competitive programming and networking in premier tech competition"
         },
         {
             src: img6,
             aspect: "horizontal",
             size: "small",
-            category: "events",
             title: "CST LAN Challenge 2024",
-            description: "Early beginnings in competitive programming and team challenges"
+            description: "Early journey in competitive coding and team challenges"
         },
         {
             src: img7,
             aspect: "vertical",
-            size: "medium",
-            category: "workshops",
+            size: "small",
             title: "Shecoderess 2025",
-            description: "Mentoring aspiring female coders in web development and career growth"
+            description: "Mentoring aspiring female developers in web technologies"
         },
         {
             src: img8,
             aspect: "horizontal",
-            size: "large",
-            category: "leadership",
+            size: "medium",
             title: "Compering at CST LAN Challenge",
-            description: "Hosting and engaging audiences at major technical events"
+            description: "Hosting and engaging audience at major technical events"
         },
         {
             src: img9,
             aspect: "vertical",
-            size: "medium",
-            category: "personal",
+            size: "large",
             title: "Happy Moment",
-            description: "Celebrating successes with amazing teammates and collaborators"
+            description: "Celebrating successes with amazing teammates and friends"
         },
         {
             src: img11,
             aspect: "horizontal",
             size: "small",
-            category: "achievements",
             title: "Dean's List Recognition",
-            description: "Academic excellence and consistent performance in engineering studies"
+            description: "Academic excellence and consistent performance in studies"
         },
         {
             src: img10,
             aspect: "vertical",
             size: "small",
-            category: "team",
             title: "Web Team at IEEE Open Day",
             description: "Collaborative efforts in delivering exceptional digital experiences"
         },
         {
             src: img12,
             aspect: "vertical",
-            size: "medium",
-            category: "events",
+            size: "small",
             title: "ENTREARC 2025",
-            description: "Bridging entrepreneurship and architecture through innovative thinking"
+            description: "Exploring entrepreneurship and architecture innovations"
         },
         {
             src: img13,
             aspect: "horizontal",
             size: "small",
-            category: "personal",
             title: "Professional Journey",
-            description: "Continuous growth and learning in the dynamic field of technology"
+            description: "Continuous growth in the dynamic field of technology"
         },
         {
             src: img14,
             aspect: "horizontal",
-            size: "medium",
-            category: "achievements",
+            size: "small",
             title: "Winning Prizes at Shecoderess",
-            description: "Recognizing dedication and impact in empowering women in tech"
+            description: "Recognizing impact in empowering women in technology"
         },
     ];
 
-    const categories = [
-        { id: "all", label: "All Moments" },
-        { id: "achievements", label: "Achievements" },
-        { id: "events", label: "Events" },
-        { id: "leadership", label: "Leadership" },
-        { id: "workshops", label: "Workshops" },
-        { id: "team", label: "Teamwork" },
-        { id: "personal", label: "Personal" }
-    ];
-
-    const filteredImages = filter === "all" ? images : images.filter(img => img.category === filter);
-
-    const getGridClass = (size, aspect) => {
-        if (size === "large") {
-            return aspect === "vertical" ? "col-span-2 row-span-2" : "col-span-3 row-span-2";
-        }
-        if (size === "medium") {
-            return aspect === "vertical" ? "col-span-1 row-span-2" : "col-span-2 row-span-1";
-        }
-        return "col-span-1 row-span-1";
-    };
-
     return (
-        <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Heading Section */}
-                <motion.div
+        <section className="py-16 bg-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                {/* Heading */}
+                <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-12"
+                    className="text-3xl sm:text-4xl font-bold text-black mb-4"
                 >
-                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        Journey Through Moments
-                    </h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Capturing milestones, achievements, and memories that define my growth in technology and leadership
-                    </p>
-                </motion.div>
+                    Moments That Shaped My Journey
+                </motion.h2>
 
-                {/* Filter Buttons */}
-                <motion.div
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="flex flex-wrap justify-center gap-3 mb-8"
+                    transition={{ duration: 0.8 }}
+                    className="text-gray-600 max-w-2xl mx-auto mb-12"
                 >
-                    {categories.map((category) => (
-                        <button
-                            key={category.id}
-                            onClick={() => setFilter(category.id)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                                filter === category.id
-                                    ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25"
-                                    : "bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg border border-gray-200"
-                            }`}
-                        >
-                            {category.label}
-                        </button>
-                    ))}
-                </motion.div>
+                    A glimpse into my achievements, volunteering, workshops, teamwork, and milestone moments.
+                </motion.p>
 
-                {/* Enhanced Grid Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-[200px]">
-                    {filteredImages.map((item, index) => (
+                {/* Compact Grid Layout - No Empty Spaces */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+                    {images.map((image, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{
-                                duration: 0.5,
-                                delay: index * 0.1,
-                                type: "spring",
-                                stiffness: 100
-                            }}
-                            whileHover={{
-                                scale: 1.02,
-                                y: -5,
-                                transition: { duration: 0.2 }
-                            }}
-                            onClick={() => setSelectedImage(item)}
-                            className={`relative overflow-hidden rounded-2xl cursor-pointer group ${getGridClass(item.size, item.aspect)}`}
+                            transition={{ duration: 0.4, delay: index * 0.05 }}
+                            whileHover={{ scale: 1.02 }}
+                            onClick={() => setSelectedImage(image)}
+                            className={`
+                                relative overflow-hidden rounded-lg shadow-md border border-white/20 
+                                cursor-pointer group aspect-square
+                                ${image.size === 'large' ? 'col-span-2 row-span-2' : ''}
+                                ${image.size === 'medium' ? 'col-span-1 row-span-1' : ''}
+                                ${image.size === 'small' ? 'col-span-1 row-span-1' : ''}
+                            `}
                         >
-                            {/* Image */}
                             <img
-                                src={item.src}
-                                alt={item.title}
-                                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                                src={image.src}
+                                alt={image.title}
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             />
 
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                {/* Content */}
-                                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                                    <div className="flex items-start justify-between mb-2">
-                                        <h3 className="text-white font-bold text-sm leading-tight flex-1 pr-2">
-                                            {item.title}
-                                        </h3>
-                                        <ExternalLink size={16} className="text-white/80 flex-shrink-0 mt-1" />
-                                    </div>
-                                    <p className="text-white/90 text-xs leading-relaxed mb-3 line-clamp-2">
-                                        {item.description}
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-250">
+                                <div className="absolute bottom-0 left-0 right-0 p-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-250">
+                                    <h3 className="text-white font-semibold text-xs mb-1 line-clamp-1">
+                                        {image.title}
+                                    </h3>
+                                    <p className="text-white/80 text-xs line-clamp-2 leading-tight">
+                                        {image.description}
                                     </p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="inline-block px-2 py-1 bg-blue-500/80 text-white text-xs rounded-full">
-                                            {item.category}
+                                    <div className="mt-1 flex items-center justify-between">
+                                        <span className="text-white/60 text-xs">
+                                            Click to view
                                         </span>
-                                        <div className="flex space-x-1">
-                                            <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse"></div>
-                                            <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                                            <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                                        </div>
+                                        <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse"></div>
                                     </div>
                                 </div>
-
-                                {/* Shine Effect */}
-                                <div className="absolute top-0 -left-full group-hover:left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform skew-x-45 transition-all duration-1000"></div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Empty State */}
-                {filteredImages.length === 0 && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-center py-12"
-                    >
-                        <p className="text-gray-500 text-lg">No images found for this category.</p>
-                    </motion.div>
-                )}
-
-                {/* Enhanced Modal */}
+                {/* Modal for Enlarged View */}
                 <AnimatePresence>
                     {selectedImage && (
                         <motion.div
@@ -282,44 +200,33 @@ const GallerySection = () => {
                                 initial={{ scale: 0.8, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 exit={{ scale: 0.8, opacity: 0 }}
-                                transition={{
-                                    type: "spring",
-                                    damping: 30,
-                                    stiffness: 300
-                                }}
-                                className="relative max-w-6xl max-h-full"
+                                transition={{ type: "spring", damping: 25 }}
+                                className="relative max-w-4xl max-h-full"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 {/* Close Button */}
                                 <button
                                     onClick={() => setSelectedImage(null)}
-                                    className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-all duration-300 z-10 bg-black/50 rounded-full p-2 hover:bg-black/70"
+                                    className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-1"
                                 >
-                                    <X size={28} />
+                                    <X size={24} />
                                 </button>
 
-                                {/* Image Container */}
-                                <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-                                    <img
-                                        src={selectedImage.src}
-                                        alt={selectedImage.title}
-                                        className="w-full max-h-[70vh] object-contain"
-                                    />
+                                {/* Image */}
+                                <img
+                                    src={selectedImage.src}
+                                    alt={selectedImage.title}
+                                    className="rounded-lg shadow-2xl max-w-full max-h-[80vh] object-contain"
+                                />
 
-                                    {/* Info Section */}
-                                    <div className="p-6 bg-gradient-to-r from-gray-900 to-blue-900">
-                                        <div className="flex items-start justify-between mb-3">
-                                            <h3 className="text-white text-2xl font-bold pr-4">
-                                                {selectedImage.title}
-                                            </h3>
-                                            <span className="inline-flex items-center px-3 py-1 bg-blue-500 text-white text-sm rounded-full whitespace-nowrap">
-                                                {selectedImage.category}
-                                            </span>
-                                        </div>
-                                        <p className="text-white/90 text-lg leading-relaxed">
-                                            {selectedImage.description}
-                                        </p>
-                                    </div>
+                                {/* Description */}
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 rounded-b-lg">
+                                    <h3 className="text-white text-xl font-bold mb-1">
+                                        {selectedImage.title}
+                                    </h3>
+                                    <p className="text-white/90 text-sm">
+                                        {selectedImage.description}
+                                    </p>
                                 </div>
                             </motion.div>
                         </motion.div>
