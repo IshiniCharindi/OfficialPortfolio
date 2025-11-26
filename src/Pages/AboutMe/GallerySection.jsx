@@ -141,42 +141,44 @@ const GallerySection = () => {
                     A glimpse into my achievements, volunteering, workshops, teamwork, and milestone moments.
                 </motion.p>
 
-                {/* Zero Gap Grid Layout */}
-                <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-0">
+                {/* Balanced Grid Layout */}
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3">
                     {images.map((image, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.4, delay: index * 0.03 }}
-                            whileHover={{ scale: 1.08, zIndex: 10 }}
+                            transition={{ duration: 0.4, delay: index * 0.05 }}
+                            whileHover={{ scale: 1.05 }}
                             onClick={() => setSelectedImage(image)}
                             className={`
-                                relative overflow-hidden cursor-pointer group
-                                ${image.size === 'large' ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'}
+                                relative overflow-hidden rounded-lg shadow-md border border-white/20 
+                                cursor-pointer group
+                                ${image.size === 'large' ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square'}
+                                ${image.size === 'medium' ? 'aspect-square' : ''}
+                                ${image.size === 'small' ? 'aspect-square' : ''}
                             `}
-                            style={{ aspectRatio: '1/1' }}
                         >
                             <img
                                 src={image.src}
                                 alt={image.title}
-                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-125"
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             />
 
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-200">
-                                <div className="absolute bottom-0 left-0 right-0 p-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
-                                    <h3 className="text-white font-semibold text-[10px] mb-0.5 line-clamp-1">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-250">
+                                <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-250">
+                                    <h3 className="text-white font-semibold text-sm mb-1 line-clamp-1">
                                         {image.title}
                                     </h3>
-                                    <p className="text-white/80 text-[9px] line-clamp-2 leading-tight">
+                                    <p className="text-white/80 text-xs line-clamp-2 leading-tight">
                                         {image.description}
                                     </p>
-                                    <div className="mt-0.5 flex items-center justify-between">
-                                        <span className="text-white/60 text-[8px]">
-                                            View
+                                    <div className="mt-2 flex items-center justify-between">
+                                        <span className="text-white/60 text-xs">
+                                            Click to view
                                         </span>
-                                        <div className="w-1 h-1 bg-white/70 rounded-full animate-pulse"></div>
+                                        <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse"></div>
                                     </div>
                                 </div>
                             </div>
