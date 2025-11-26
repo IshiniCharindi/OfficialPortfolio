@@ -28,7 +28,7 @@ const GallerySection = () => {
         },
         {
             src: img2,
-            aspect: "horizontal",
+            aspect: "vertical",
             size: "large",
             title: "NBQSA National Awards 2025",
             description: "Celebrating excellence in software innovation and national recognition"
@@ -50,7 +50,7 @@ const GallerySection = () => {
         {
             src: img5,
             aspect: "vertical",
-            size: "large",
+            size: "small",
             title: "CST LAN Challenge 2025",
             description: "Competitive programming and networking in premier tech competition"
         },
